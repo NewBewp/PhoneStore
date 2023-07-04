@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,700");
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.header {
+  background-color: #3f87f5;
+  width: 100%;
+  height: 80px;
+}
+.header .leftHeader {
+  width: 15%;
+  background-color: #2f54eb;
+}
+.header .leftHeader .logo {
+  width: 270px;
+}
+.header .leftHeader .logo .logoImg {
+  width: 75px;
+  height: 75px;
+}
+.header .rightHeader {
+  width: 85%;
+}/*# sourceMappingURL=main.css.map */

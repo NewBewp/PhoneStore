@@ -1,0 +1,21 @@
+.header{
+    background-color: $blue;
+    width: 100%;
+    height: 80px;
+    .leftHeader{
+        width: 15%;
+        background-color: $geekblue;
+        
+        .logo{
+            width: 270px;
+            .logoImg{
+                width: 75px;
+                height: 75px;
+            }
+        }
+        
+    }
+    .rightHeader{
+        width: 85%;
+    }
+}
