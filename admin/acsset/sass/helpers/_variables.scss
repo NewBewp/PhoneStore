@@ -8,19 +8,11 @@ $success:                   #00c9a7;
 $warning:                   #ffc107;
 $black:                     #000   ;
 $white:                     #fff   ;
-$orange:                    #fa8c16;
-$green:                     #52c41a;
-$blue:                      #3f87f5; 
-$purple:                    #886cff; 
-$magenta:                   #eb2f96;
-$volcano:                   #fa541c;
-$lime:                      #a0d911;
-$geekblue:                  #2f54eb;
-$cloudblue:                 #02d3ef;
-$lightgray:                 #edf2f9;
-$deepbule:                  #072349;
-$color-light: rgba(65, 68, 94, 0.274);
-$background:          #f6f6f9;
+$color-info-dark:           #7d8da1;
+$color-info-light:          #dce1eb;
+$color-dark:                #363949;
+$background:                #f6f6f9;
+$color-light: rgba(132, 139, 200, 0.18); 
 
 
 $card-border-radius: 2rem;
@@ -30,7 +22,7 @@ $border-radius-3: 1.2rem;
 
 $card-padding: 1rem 1.8rem;
 $padding-1: 1.2rem;
-$box-shadow: 0.2rem 0.3rem  $color-light;
+$box-shadow: 0 2rem 3rem $color-light;
 
 
 // Font 

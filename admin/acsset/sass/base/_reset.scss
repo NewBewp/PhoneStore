@@ -77,15 +77,15 @@ small {
 }
 
 .text-muted {
-    color: $color-light;
+    color:  $color-info-light;
 }
 
 p {
-    color: gray;
+    color: $color-info-dark;
 }
 
 b {
-    color: grey;
+    color: $color-dark;
 }
 
 .primary {
