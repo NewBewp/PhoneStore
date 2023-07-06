@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>N&K - Admin Dashboard</title>
 
-    <!-- fontawesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <!-- material-icon -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
     <!-- BOOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"> -->
 
     <!-- css -->
     <link rel="stylesheet" href="../acsset/css/main.css">
@@ -20,27 +18,164 @@
 </head>
 
 <body>
-    <!-- HEADER START -->
-    <div class="header">
-        <!-- LOGO -->
-        <div class="leftHeader">
-            <div class="logo">
-                <a href="#">
-                    <img class="logoImg" src="../acsset/img/357461860_798761135215636_6438123714977035813_n.png" alt="">
-                    <span class="logoTitle">Mobile Store</span>
-                </a>
+    <div class="container-fluid contain">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="../acsset/img/logoNK.png" alt="">
+                    <h2>Mob<span class="danger">ile</span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-symbols-sharp">
+                        close
+                    </span>
+                </div>
             </div>
-        </div>
-        <div class="rightHeader">
-            <form>
-                <input type="text" placeholder="Searching">
-                <button class="btnSearch">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </form>
-        </div>
+            <div class="sidebar">
+                <a href="#">
+                    <span class="material-symbols-sharp">
+                        grid_view
+                    </span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="#" class="active">
+                    <span class="material-symbols-sharp">
+                        person
+                    </span>
+                    <h3>Customer</h3>
+                </a>
+                <a href="#">
+                    <span class="material-symbols-sharp">
+                        receipt_long
+                    </span>
+                    <h3>Order</h3>
+                </a>
+                <a href="#">
+                    <span class="material-symbols-sharp">
+                        chat
+                    </span>
+                    <h3>Messages</h3>
+                    <span class="message-count">
+                        36
+                    </span>
+                </a>
+                <a href="#">
+                    <span class="material-symbols-sharp">
+                        inventory_2
+                    </span>
+                    <h3>Product</h3>
+                </a>
+                <a href="#">
+                    <span class="material-symbols-sharp">
+                        report
+                    </span>
+                    <h3>Reports</h3>
+                </a>
+                <a href="#">
+                    <span class="material-symbols-sharp">
+                        settings
+                    </span>
+                    <h3>Setting</h3>
+                </a>
+                <a href="#">
+                    <span class="material-symbols-sharp">
+                        add
+                    </span>
+                    <h3>Add Product</h3>
+                </a>
+                <a href="#">
+                    <span class="material-symbols-sharp">
+                        logout
+                    </span>
+                    <h3>Logout</h3>
+                </a>
+
+            </div>
+
+        </aside>
+        <main>
+            <h1>Dashboard</h1>
+
+            <div class="date">
+                <input type="date">
+            </div>
+
+            <div class="insights">
+                <div class="sales divcard">
+                    <span class="material-symbols-sharp">
+                        analytics
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total Sales</h3>
+                            <h1>$25,024</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="number">
+                                <p>81%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">
+                        Last 24 Hours
+                    </small>
+                </div>
+                <!------END OF SALES------>
+                <div class="expenses divcard">
+                    <span class="material-symbols-sharp">
+                        bar_chart
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total Expenses</h3>
+                            <h1>$25,024</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="number">
+                                <p>62%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">
+                        Last 24 Hours
+                    </small>
+                </div>
+                <!------END OF EXPENSES------>
+                <div class="income divcard">
+                    <span class="material-symbols-sharp">
+                        stacked_line_chart
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total Income</h3>
+                            <h1>$14,160</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="number">
+                                <p>44%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">
+                        Last 24 Hours
+                    </small>
+                </div>
+                <!------END OF INCOME------>
+            </div>
+        </main>
+        <div class="recent-order"></div>
+
     </div>
-    <!-- HEADER END -->
+
 
 
     <!-- BOOTSTRAP -->

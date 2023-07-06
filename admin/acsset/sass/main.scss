@@ -1,16 +1,16 @@
-// -- base
-@import "./base/reset";
 // -- helpers
 @import "./helpers/variables";
 @import "./helpers/function";
 @import "./helpers/mixin";
+// -- base
+@import "./base/reset";
 // -- components
 @import "./components/button";
 @import "./components/carousel";
 @import "./components/dropdown";
 // -- layouts
 @import "./layouts/header";
-@import "./layouts/sidebar";
+@import "./layouts/bodymain";
 @import "./layouts/forms";
 @import "./layouts/footer";
 // -- pages

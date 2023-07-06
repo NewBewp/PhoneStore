@@ -1,0 +1,120 @@
+// MAIN
+main {
+    margin-top: 1.4rem;
+
+    .date {
+        display: inline-block;
+        background: $color-light;
+        border-radius: $border-radius-1;
+        margin-top: 1rem;
+        padding: 0.5rem 1.6rem;
+
+        input[type="date"] {
+            background: transparent;
+            color: $black;
+        }
+    }
+
+    .insights {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.6rem;
+
+        .divcard {
+            background: $white;
+            padding: $card-padding;
+            border-radius: $border-radius-3;
+            margin-top: 1rem;
+            // box-shadow: 5px 10px $color-light;
+            box-shadow: $box-shadow;
+            transition: all .3s ease;
+            .middle {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .left {
+                    h3 {
+                        margin: 1rem 0 0.6rem;
+                        font-size: 1rem;
+                    }
+                }
+                .progress{
+                    position: relative;
+                    width: 92px;
+                    height: 92px;
+                    border-radius: 50%;
+                    .number{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+
+            &:hover {
+                box-shadow: none;
+            }
+
+            span {
+                background-color: $primary;
+                padding: .5rem;
+                border-radius: 50%;
+                color: $white;
+                font-size: 2rem;
+            }
+        }
+
+        small{
+            margin-top: 1.3rem;
+            display: block;
+        }
+
+        .sales {
+            circle{
+                stroke-dashoffset: -30;
+                stroke-dasharray: 200;
+            }
+        }
+
+        .expenses {
+            span {
+                background-color: $danger;
+            }
+
+            circle{
+                stroke-dashoffset: 20;
+                stroke-dasharray: 80;
+            }
+        }
+
+        .income {
+            span {
+                background-color: $success;
+            }
+            circle{
+                stroke-dashoffset: 35;
+                stroke-dasharray: 110;
+            }
+        }
+
+        svg{
+            width: 7rem;
+            height: 7rem;
+            circle{
+                fill: none;
+                stroke: $primary;
+                stroke-width: 14px;
+                stroke-linecap: round;
+                transform: translate(5px,5px);
+                stroke-dasharray: 110;
+                stroke-dashoffset: 92;
+            }
+        }
+
+    }
+}

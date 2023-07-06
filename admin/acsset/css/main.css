@@ -1,26 +1,283 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,700");
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 0;
+  text-decoration: none;
+  list-style: none;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-.header {
-  background-color: #3f87f5;
+html {
+  font-size: 14px;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: #f6f6f9;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  overflow-x: hidden;
+}
+
+.contain {
+  display: grid;
+  width: 96%;
+  margin: 0 auto;
+  gap: 1.8rem;
+  grid-template-columns: 14rem auto 23rem;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+img {
+  display: block;
   width: 100%;
-  height: 80px;
 }
-.header .leftHeader {
-  width: 15%;
-  background-color: #2f54eb;
+
+h1 {
+  font-weight: 800;
+  font-size: 1.8rem;
 }
-.header .leftHeader .logo {
-  width: 270px;
+
+h2 {
+  font-size: 1.4rem;
 }
-.header .leftHeader .logo .logoImg {
-  width: 75px;
-  height: 75px;
+
+h3 {
+  font-size: 0.87rem;
 }
-.header .rightHeader {
-  width: 85%;
+
+h4 {
+  font-size: 0.8rem;
+}
+
+h5 {
+  font-size: 0.77rem;
+}
+
+small {
+  font-size: 0.75rem;
+}
+
+.profile-photo {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.text-muted {
+  color: rgba(65, 68, 94, 0.274);
+}
+
+p {
+  color: gray;
+}
+
+b {
+  color: grey;
+}
+
+.primary {
+  color: #7380ec;
+}
+
+.danger {
+  color: #ff7782;
+}
+
+.success {
+  color: #00c9a7;
+}
+
+.warning {
+  color: #ffc107;
+}
+
+aside {
+  height: 100vh;
+}
+aside .logo {
+  display: flex;
+  gap: 0.8rem;
+}
+aside .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.4rem;
+}
+aside .top img {
+  width: 2rem;
+  height: 2rem;
+}
+aside .close {
+  display: none;
+}
+aside .sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 86vh;
+  position: relative;
+  top: 3rem;
+}
+aside .sidebar .message-count {
+  background: #ff7782;
+  color: #fff;
+  padding: 2px 10px;
+  font-size: 11px;
+  border-radius: 0.4rem;
+}
+aside h3 {
+  font-weight: 500;
+}
+aside a {
+  display: flex;
+  color: gray;
+  margin-left: 2rem;
+  gap: 1rem;
+  align-items: center;
+  position: relative;
+  height: 3.7rem;
+  transition: all 0.3s ease;
+}
+aside a span {
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+}
+aside a:hover {
+  color: #7380ec;
+}
+aside a:hover span {
+  margin-left: 1rem;
+}
+aside a:last-child {
+  position: absolute;
+  bottom: 2rem;
+  width: 100%;
+}
+aside a.active {
+  background: rgba(65, 68, 94, 0.274);
+  color: #7380ec;
+  margin-left: 0;
+}
+aside a.active span {
+  color: #7380ec;
+  margin-left: calc(1rem - 3px);
+}
+aside a.active::before {
+  content: "";
+  width: 6px;
+  height: 100%;
+  background: #7380ec;
+}
+
+main {
+  margin-top: 1.4rem;
+}
+main .date {
+  display: inline-block;
+  background: rgba(65, 68, 94, 0.274);
+  border-radius: 0.4rem;
+  margin-top: 1rem;
+  padding: 0.5rem 1.6rem;
+}
+main .date input[type=date] {
+  background: transparent;
+  color: #000;
+}
+main .insights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
+main .insights .divcard {
+  background: #fff;
+  padding: 1rem 1.8rem;
+  border-radius: 1.2rem;
+  margin-top: 1rem;
+  box-shadow: 0.2rem 0.3rem rgba(65, 68, 94, 0.274);
+  transition: all 0.3s ease;
+}
+main .insights .divcard .middle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+main .insights .divcard .middle .left h3 {
+  margin: 1rem 0 0.6rem;
+  font-size: 1rem;
+}
+main .insights .divcard .middle .progress {
+  position: relative;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+}
+main .insights .divcard .middle .progress .number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .insights .divcard:hover {
+  box-shadow: none;
+}
+main .insights .divcard span {
+  background-color: #7380ec;
+  padding: 0.5rem;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 2rem;
+}
+main .insights small {
+  margin-top: 1.3rem;
+  display: block;
+}
+main .insights .sales circle {
+  stroke-dashoffset: -30;
+  stroke-dasharray: 200;
+}
+main .insights .expenses span {
+  background-color: #ff7782;
+}
+main .insights .expenses circle {
+  stroke-dashoffset: 20;
+  stroke-dasharray: 80;
+}
+main .insights .income span {
+  background-color: #00c9a7;
+}
+main .insights .income circle {
+  stroke-dashoffset: 35;
+  stroke-dasharray: 110;
+}
+main .insights svg {
+  width: 7rem;
+  height: 7rem;
+}
+main .insights svg circle {
+  fill: none;
+  stroke: #7380ec;
+  stroke-width: 14px;
+  stroke-linecap: round;
+  transform: translate(5px, 5px);
+  stroke-dasharray: 110;
+  stroke-dashoffset: 92;
 }/*# sourceMappingURL=main.css.map */
