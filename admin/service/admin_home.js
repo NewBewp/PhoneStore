@@ -1,11 +1,10 @@
-const sideMenu = document.querySelector("aside");
-const menuBtn = document.querySelector("#menu-btn");
-const closeBtn = document.querySelector("#close-btn");
 
-menuBtn.addEventListener("click", ()=>{
-    sideMenu.style.display = "block";
-})
+function openAside() {
+    document.getElementById("aside_right").style.display = "block";
+}
+document.getElementById("menu-btn").onclick = openAside
 
-closeBtn.addEventListener("click", ()=>{
-    sideMenu.style.display = "none";
-})
+function closeAside() {
+    document.getElementById("aside_right").style.display = "none";
+}
+document.getElementById("close-btn").onclick = closeAside

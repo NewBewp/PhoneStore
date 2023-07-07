@@ -2,7 +2,7 @@
 main {
     margin-top: 1.4rem;
 
-    @include mobile{
+    @include mobile {
         margin-top: 8rem;
         padding: 0 1rem;
     }
@@ -143,7 +143,7 @@ main {
             margin: 2rem 0 0 8.8rem;
         }
 
-        @include mobile{
+        @include mobile {            
             position: relative;
             margin: 3rem 0 0 0;
             width: 100%;
@@ -171,14 +171,15 @@ main {
             box-shadow: $box-shadow;
             transition: all 0.3s ease;
 
+            @include mobile {
+                width: 100vh;
+                margin: 0;
+            }
+
             @include tablet {
                 width: 83vw;
             }
 
-            @include mobile{
-                width: 100%;
-                margin: 0;
-            }
 
             &:hover {
                 box-shadow: none;
@@ -187,7 +188,6 @@ main {
             thead {
                 tr {
                     @include tablet {
-
                         th:nth-child(2),
                         th:last-child {
                             display: none;
@@ -226,7 +226,7 @@ main {
 .right {
     margin-top: 1.4rem;
 
-    @include mobile{
+    @include mobile {
         width: 94%;
         margin: 0 auto 4rem;
     }
@@ -236,7 +236,7 @@ main {
         justify-content: end;
         gap: 2rem;
 
-        @include mobile{
+        @include mobile {
             position: fixed;
             top: 0;
             left: 0;
@@ -252,7 +252,8 @@ main {
 
         button {
             display: none;
-            @include mobile{
+
+            @include mobile {
                 display: inline-block;
                 background: transparent;
                 cursor: pointer;
@@ -260,8 +261,9 @@ main {
                 position: absolute;
                 left: 1rem;
             }
-            span{
-                @include mobile{
+
+            span {
+                @include mobile {
                     font-size: 2rem;
                 }
             }
@@ -272,8 +274,8 @@ main {
             gap: 2rem;
             text-align: right;
 
-            .info{
-                @include mobile{
+            .info {
+                @include mobile {
                     display: none;
                 }
             }
@@ -290,7 +292,7 @@ main {
         cursor: pointer;
         border-radius: $border-radius-1;
 
-        @include mobile{
+        @include mobile {
             width: 4.4rem;
             position: absolute;
             left: 66%;
