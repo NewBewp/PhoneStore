@@ -135,6 +135,8 @@ main {
 
     // recent-order
     .recent-orders {
+        margin-top: 2rem;
+
         @include tablet {
             width: 94%;
             position: absolute;
@@ -156,8 +158,7 @@ main {
             color: $primary;
         }
 
-        margin-top: 2rem;
-
+        
         h2 {
             margin-bottom: 0.8rem;
         }
