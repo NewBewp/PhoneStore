@@ -9,37 +9,33 @@
         border-radius: $card-border-radius;
         padding: $card-padding;
 
-        .addProduct-btn{
-            color: $primary;
+        .add-product {
+            margin-top: 2rem;
+            margin-left: 56rem;
+            button {
+                right: 5rem;
+                display: flex;
+                align-items: center;
+                gap: .6rem;
+                border-radius: 2rem;
+                padding: $card-padding;
+                background: transparent;
+                border: 2px dashed $primary;
+                color: $primary;
+                align-items: center;
+                justify-content: center;
+
+                h3 {
+                    font-weight: 700;
+                }
+            }
         }
-     
-        // .add-product-btn {
-        //     background: transparent;
-        //     border: 2px dashed $primary;
-        //     color: $primary;
-        //     display: flex;
-        //     align-items: center;
-        //     justify-content: center;
-        //     border-radius: $border-radius-1;
 
-        //     div {
-        //         display: flex;
-        //         align-items: center;
-        //         gap: .6rem;
-
-        //         h3 {
-        //             font-weight: 700;
-        //         }
-        //     }
-        // }
 
         .itemForm {
             margin-bottom: 1rem;
             display: flex;
             flex-direction: column;
-
-    
-     
 
             label {
                 margin-bottom: 1rem;

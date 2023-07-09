@@ -626,8 +626,25 @@ main .recent-orders table tbody td {
   border-radius: 2rem;
   padding: 1rem 1.8rem;
 }
-.inputProduct form .addProduct-btn {
+.inputProduct form .add-product {
+  margin-top: 2rem;
+  margin-left: 56rem;
+}
+.inputProduct form .add-product button {
+  right: 5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 2rem;
+  padding: 1rem 1.8rem;
+  background: transparent;
+  border: 2px dashed #7380ec;
   color: #7380ec;
+  align-items: center;
+  justify-content: center;
+}
+.inputProduct form .add-product button h3 {
+  font-weight: 700;
 }
 .inputProduct form .itemForm {
   margin-bottom: 1rem;
