@@ -628,26 +628,31 @@ main .recent-orders table tbody td {
 }
 .inputProduct form .add-product {
   margin-top: 2rem;
-  margin-left: 56rem;
+  right: 50%;
 }
 .inputProduct form .add-product button {
-  right: 5rem;
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  border-radius: 2rem;
+  border-radius: 0.4rem;
   padding: 1rem 1.8rem;
   background: transparent;
   border: 2px dashed #7380ec;
   color: #7380ec;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
 }
 .inputProduct form .add-product button h3 {
   font-weight: 700;
 }
+.inputProduct form .add-product button:hover {
+  background-color: #7380ec;
+  color: #fff;
+}
 .inputProduct form .itemForm {
-  margin-bottom: 1rem;
+  margin-bottom: rem;
   display: flex;
   flex-direction: column;
 }

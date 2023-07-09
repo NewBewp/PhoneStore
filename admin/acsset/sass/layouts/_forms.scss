@@ -11,31 +11,41 @@
 
         .add-product {
             margin-top: 2rem;
-            margin-left: 56rem;
+            right: 50%;
+
             button {
-                right: 5rem;
+                cursor: pointer;
                 display: flex;
                 align-items: center;
                 gap: .6rem;
-                border-radius: 2rem;
+                border-radius: $border-radius-1;
                 padding: $card-padding;
                 background: transparent;
                 border: 2px dashed $primary;
                 color: $primary;
                 align-items: center;
                 justify-content: center;
+                transition: all .3s ease;
 
                 h3 {
                     font-weight: 700;
                 }
+
+                &:hover{
+                    background-color: $primary;
+                    color: $white;
+                }
             }
+
         }
 
 
         .itemForm {
-            margin-bottom: 1rem;
+            margin-bottom: rem;
             display: flex;
             flex-direction: column;
+
+
 
             label {
                 margin-bottom: 1rem;
