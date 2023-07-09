@@ -94,7 +94,7 @@
 
         </aside>
         <main>
-            <!-- <h1>Dashboard</h1> -->
+            <h1>Add Product</h1>
             <div class="date">
                 <input type="date">
             </div>
@@ -170,23 +170,24 @@
                 <!------END OF INCOME------>
             </div>
             <!------END OF TOTAL------>
+
             <div class="inputProduct">
-                <h1>Add Product</h1>
+
                 <form>
                     <div class="itemForm">
                         <label for="nameProd">
                             <h3>Name Product</h3>
                         </label>
                         <input type="text" name="nameProd" id="nameProd">
-                        <span id="invalidNameProduct"></span>
+                        <span id="invalidName"></span>
                     </div>
                     <!-------->
                     <div class="itemForm">
                         <label for="imgProd">
-                            <h3>Image</h3>
+                            <h3>Image URL</h3>
                         </label>
                         <input type="text" name="imgProd" id="imgProd">
-                        <span id="invalidImgProduct"></span>
+                        <span id="invalidImg"></span>
                     </div>
                     <!-------->
                     <div class="itemForm">
@@ -194,7 +195,7 @@
                             <h3>Price</h3>
                         </label>
                         <input type="number" name="priceProd" id="priceProd">
-                        <span id="invalidPriceProduct"></span>
+                        <span id="invalidPrice"></span>
                     </div>
                     <!-------->
                     <div class="itemForm">
@@ -202,7 +203,7 @@
                             <h3>Description</h3>
                         </label>
                         <input type="text" name="descrProd" id="descrProd">
-                        <span id="invalidDescProduct"></span>
+                        <span id="invalidDesc"></span>
                     </div>
                     <!-------->
                     <div class="itemForm">
@@ -210,9 +211,13 @@
                             <h3>Type</h3>
                         </label>
                         <input type="text" name="typeProd" id="typeProd">
-                        <span id="invalidtypeProduct"></span>
+                        <span id="invalidType"></span>
                     </div>
 
+                    <button id="add-product-btn">
+                        <span class="material-symbols-sharp">add</span>
+                        <h3>Add Product</h3>
+                    </button>
                 </form>
             </div>
             <!----END OF FORM INPUT PRODUCT---->
@@ -318,12 +323,7 @@
                     </div>
                 </div>
 
-                <div class="item add-product">
-                    <div>
-                        <span class="material-symbols-sharp">add</span>
-                        <h3>Add Product</h3>
-                    </div>
-                </div>
+
 
             </div>
         </div>

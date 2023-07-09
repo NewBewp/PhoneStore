@@ -1,4 +1,6 @@
 
+
+
 function openAside() {
     document.getElementById("aside_right").style.display = "block";
 }

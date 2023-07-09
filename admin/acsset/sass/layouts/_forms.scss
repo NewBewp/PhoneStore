@@ -9,26 +9,58 @@
         border-radius: $card-border-radius;
         padding: $card-padding;
 
+        .addProduct-btn{
+            color: $primary;
+        }
+     
+        // .add-product-btn {
+        //     background: transparent;
+        //     border: 2px dashed $primary;
+        //     color: $primary;
+        //     display: flex;
+        //     align-items: center;
+        //     justify-content: center;
+        //     border-radius: $border-radius-1;
 
-        .itemForm{
+        //     div {
+        //         display: flex;
+        //         align-items: center;
+        //         gap: .6rem;
+
+        //         h3 {
+        //             font-weight: 700;
+        //         }
+        //     }
+        // }
+
+        .itemForm {
             margin-bottom: 1rem;
             display: flex;
-            flex-direction: column;    
-            
-            label{
+            flex-direction: column;
+
+    
+     
+
+            label {
                 margin-bottom: 1rem;
             }
 
-            input{
+            input {
                 border: 1px solid $color-light;
                 border-radius: $border-radius-1;
                 padding: $card-padding;
-                &:focus{
+                box-shadow: none;
+                transition: all .3s ease;
+
+                &:hover {
+
+                    box-shadow: $box-shadow;
+                }
+
+                &:focus {
                     border: 1px solid $black;
                 }
             }
         }
-
     }
-
 }
