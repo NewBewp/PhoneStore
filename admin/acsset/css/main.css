@@ -652,7 +652,7 @@ main .recent-orders table tbody td {
   color: #fff;
 }
 .inputProduct form .itemForm {
-  margin-bottom: rem;
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
 }
