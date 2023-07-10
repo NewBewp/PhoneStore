@@ -13,7 +13,7 @@
             margin-top: 2rem;
             right: 50%;
 
-            button {
+            .btn-add-product {
                 cursor: pointer;
                 display: flex;
                 align-items: center;
@@ -31,12 +31,11 @@
                     font-weight: 700;
                 }
 
-                &:hover{
+                &:hover {
                     background-color: $primary;
                     color: $white;
                 }
             }
-
         }
 
 
