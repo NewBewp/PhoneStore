@@ -449,7 +449,7 @@ main .recent-orders table tbody td {
 }
 
 .right {
-  margin-top: 1.4rem;
+  margin-right: 1.4rem;
 }
 @media screen and (max-width: 768px) {
   .right {
