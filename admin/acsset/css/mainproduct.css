@@ -384,7 +384,7 @@ main .recent-orders {
 }
 @media screen and (max-width: 1200px) {
   main .recent-orders {
-    width: 94%;
+    width: 100%;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -416,30 +416,28 @@ main .recent-orders table {
   box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
   transition: all 0.3s ease;
 }
-@media screen and (max-width: 768px) {
-  main .recent-orders table {
-    width: 100vh;
-    margin: 0;
-  }
-}
 @media screen and (max-width: 1200px) {
   main .recent-orders table {
-    width: 83vw;
+    width: 85vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  main .recent-orders table {
+    width: 96vw;
+    margin: 0;
   }
 }
 main .recent-orders table:hover {
   box-shadow: none;
 }
 @media screen and (max-width: 1200px) {
-  main .recent-orders table thead tr th:nth-child(2),
-  main .recent-orders table thead tr th:last-child {
-    display: none;
+  main .recent-orders table thead tr {
+    th: nth-child(2);
   }
 }
 @media screen and (max-width: 1200px) {
-  main .recent-orders table tbody tr td:nth-child(2),
-  main .recent-orders table tbody tr td:last-child {
-    display: none;
+  main .recent-orders table tbody tr {
+    td: nth-child(2);
   }
 }
 main .recent-orders table tbody tr:last-child td {
@@ -630,7 +628,7 @@ main .recent-orders table tbody td {
   margin-top: 2rem;
   right: 50%;
 }
-.inputProduct form .add-product button {
+.inputProduct form .add-product .btn-add-product {
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -644,10 +642,10 @@ main .recent-orders table tbody td {
   justify-content: center;
   transition: all 0.3s ease;
 }
-.inputProduct form .add-product button h3 {
+.inputProduct form .add-product .btn-add-product h3 {
   font-weight: 700;
 }
-.inputProduct form .add-product button:hover {
+.inputProduct form .add-product .btn-add-product:hover {
   background-color: #7380ec;
   color: #fff;
 }

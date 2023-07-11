@@ -138,7 +138,7 @@ main {
         margin-top: 2rem;
 
         @include tablet {
-            width: 94%;
+            width: 100%;
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
@@ -172,14 +172,18 @@ main {
             box-shadow: $box-shadow;
             transition: all 0.3s ease;
 
+            @include tablet {
+                width: 85vw;
+            }
+
+
             @include mobile {
-                width: 100vh;
+                width: 96vw;
+
                 margin: 0;
             }
 
-            @include tablet {
-                width: 83vw;
-            }
+           
 
 
             &:hover {
@@ -190,9 +194,9 @@ main {
                 tr {
                     @include tablet {
                         th:nth-child(2),
-                        th:last-child {
-                            display: none;
-                        }
+                        // th:last-child {
+                        //     display: none;
+                        // }
                     }
                 }
             }
@@ -204,9 +208,9 @@ main {
                     @include tablet {
 
                         td:nth-child(2),
-                        td:last-child {
-                            display: none;
-                        }
+                        // td:last-child {
+                        //     display: none;
+                        // }
                     }
                 }
 
