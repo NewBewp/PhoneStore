@@ -447,6 +447,29 @@ main .recent-orders table tbody td {
   height: 2.8rem;
   border-bottom: 1px solid rgba(132, 139, 200, 0.18);
 }
+main .recent-orders table tbody td .delete {
+  border: 2px solid #ff7782;
+  background: transparent;
+  margin-right: 0.3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0.2rem;
+}
+main .recent-orders table tbody td .delete:hover {
+  background-color: #ff7782;
+  color: #f6f6f9;
+}
+main .recent-orders table tbody td .edit {
+  border: 2px solid #00c9a7;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0.2rem;
+}
+main .recent-orders table tbody td .edit:hover {
+  background-color: #00c9a7;
+  color: #f6f6f9;
+}
 
 .right {
   margin-right: 1.4rem;
@@ -461,6 +484,7 @@ main .recent-orders table tbody td {
   display: flex;
   justify-content: end;
   gap: 2rem;
+  margin-top: 1rem;
 }
 @media screen and (max-width: 768px) {
   .right .top {
@@ -605,6 +629,7 @@ main .recent-orders table tbody td {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .right .sale-analytics .add-product div {
   display: flex;

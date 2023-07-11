@@ -145,7 +145,7 @@ main {
             margin: 2rem 0 0 8.8rem;
         }
 
-        @include mobile {            
+        @include mobile {
             position: relative;
             margin: 3rem 0 0 0;
             width: 100%;
@@ -158,7 +158,7 @@ main {
             color: $primary;
         }
 
-        
+
         h2 {
             margin-bottom: 0.8rem;
         }
@@ -183,7 +183,7 @@ main {
                 margin: 0;
             }
 
-           
+
 
 
             &:hover {
@@ -222,6 +222,32 @@ main {
                     height: 2.8rem;
                     border-bottom: 1px solid $color-light;
 
+                    .delete {
+                        border: 2px solid $danger;
+                        background: transparent;
+                        margin-right: .3rem;
+                        cursor: pointer;
+                        transition: all .3s ease;
+                        padding: .2rem;
+
+                        &:hover {
+                            background-color: $danger;
+                            color: $background;
+                        }
+                    }
+
+                    .edit {
+                        border: 2px solid $success;
+                        background: transparent;
+                        cursor: pointer;
+                        transition: all .3s ease;
+                        padding: .2rem;
+
+                        &:hover {
+                            background-color: $success;
+                            color: $background;
+                        }
+                    }
                 }
             }
         }
@@ -240,6 +266,7 @@ main {
         display: flex;
         justify-content: end;
         gap: 2rem;
+        margin-top: 1rem;
 
         @include mobile {
             position: fixed;
@@ -412,6 +439,7 @@ main {
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
 
             div {
                 display: flex;

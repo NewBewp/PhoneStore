@@ -11,9 +11,9 @@ const getProductList = () => {
 
     promise
         .then((result) => {
-
+            renderProductList(result.data)
         }).catch((err) => {
-
+            console.log(err);
         });
 }
 getProductList();
@@ -26,12 +26,15 @@ const renderProductList = (arrProduct) => {
                 <td>${item.id}</td>
                 <td>${item.name}</td>
                 <td>${item.price}</td>
-                <td>${item.img}</td>
+                <td>
+                    <img src="${item.img}" style="width: 100px; height: 100px; object-fit: cover; object-position: center;">
+                </td>
                 <td> 
-                    <button class="warning" >Delete</button>
-                    <button class="success" >Edit</button>
+                    <button class="danger delete">Delete</button>
+                    <button class="success edit">Edit</button>
                 </td>
             </tr>
         `
     })
+    $('#tbodyProduct').innerHTML = htmlContent;
 } 
