@@ -1,0 +1,1 @@
+export const DOMAIN = 'https://64a8600edca581464b85b0a9.mockapi.io/products';
