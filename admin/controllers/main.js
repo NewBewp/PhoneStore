@@ -58,7 +58,7 @@ const getInfoProduct = () => {
     const { nameProd, imgProd, priceProd, descrProd, typeProd, idProd } = product;
     return new Product(nameProd, imgProd, priceProd, descrProd, typeProd, idProd);
 }
-
+//them san pham
 $('#btnAdd').onclick = () => {
     const product = getInfoProduct();
     console.log(product);
@@ -67,30 +67,15 @@ $('#btnAdd').onclick = () => {
         url: DOMAIN,
         method: 'POST',
         data: {...product,}
-    })
+    });
+    promise
+        .then((result) => {
+            getProductList()
+        })
+        .catch((err) => {
+            console.log(err);
+        }); 
 }
 
 
 
-
-// them product
-
-// getElement('#btnAdd').onclick = () => {
-//     const product = getInfoProduct()
-//     console.log('product: ', product);
-
-    // const promise = axios({
-
-    //     url: DOMAIN,
-    //     method: 'POST',
-    //     data: { ...product, },
-    // })
-
-    // promise
-    //     .then((result) => {
-    //         getProductList()
-    //     })
-    //     .catch((err) => {
-    //         console.log(err);
-    //     })
-// }
