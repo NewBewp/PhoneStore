@@ -38,3 +38,21 @@ const renderProductList = (arrProduct) => {
     })
     $('#tbodyProduct').innerHTML = htmlContent;
 } 
+
+const getInfoProduct = () =>{
+    const element = document.querySelectorAll('#formProduct input,#formProduct select')
+    
+
+    let product ={}
+    element.forEach((ele)=>{
+        const {name,value}=ele;
+        product[name] =value
+    })
+
+    console.log('element: ',element)
+}
+
+
+$('#btnAdd').onclick = () =>{
+    getInfoProduct
+}

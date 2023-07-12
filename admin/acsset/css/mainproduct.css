@@ -649,11 +649,11 @@ main .recent-orders table tbody td .edit:hover {
   border-radius: 2rem;
   padding: 1rem 1.8rem;
 }
-.inputProduct form .add-product {
+.inputProduct form .button-product {
   margin-top: 2rem;
-  right: 50%;
+  left: 0;
 }
-.inputProduct form .add-product .btn-add-product {
+.inputProduct form .button-product .btn-add-product {
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -666,11 +666,34 @@ main .recent-orders table tbody td .edit:hover {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  position: relative;
 }
-.inputProduct form .add-product .btn-add-product h3 {
+.inputProduct form .button-product .btn-add-product h3 {
   font-weight: 700;
 }
-.inputProduct form .add-product .btn-add-product:hover {
+.inputProduct form .button-product .btn-add-product:hover {
+  background-color: #7380ec;
+  color: #fff;
+}
+.inputProduct form .button-product .btn-edit-product {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 0.4rem;
+  padding: 1rem 1.8rem;
+  background: transparent;
+  border: 2px dashed #7380ec;
+  color: #7380ec;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: absolute;
+}
+.inputProduct form .button-product .btn-edit-product h3 {
+  font-weight: 700;
+}
+.inputProduct form .button-product .btn-edit-product:hover {
   background-color: #7380ec;
   color: #fff;
 }
@@ -693,5 +716,18 @@ main .recent-orders table tbody td .edit:hover {
   box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
 }
 .inputProduct form .itemForm input:focus {
+  border: 1px solid #000;
+}
+.inputProduct form .itemForm select {
+  border: 1px solid rgba(132, 139, 200, 0.18);
+  border-radius: 0.4rem;
+  padding: 1rem 1.8rem;
+  box-shadow: none;
+  transition: all 0.3s ease;
+}
+.inputProduct form .itemForm select:hover {
+  box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
+}
+.inputProduct form .itemForm select:focus {
   border: 1px solid #000;
 }/*# sourceMappingURL=mainproduct.css.map */

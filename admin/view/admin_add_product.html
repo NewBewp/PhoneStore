@@ -173,9 +173,9 @@
 
             <div class="inputProduct">
 
-                <form>
+                <form id="formProduct">
                     <div class="itemForm">
-                        <label for="nameProd">
+                        <label  for="nameProd">
                             <h3>Name Product</h3>
                         </label>
                         <input type="text" name="nameProd" id="nameProd">
@@ -210,16 +210,27 @@
                         <label for="typeProd">
                             <h3>Type</h3>
                         </label>
-                        <input type="text" name="typeProd" id="typeProd">
+                        <!-- <input type="text" name="typeProd" id="typeProd"> -->
+                        <select name="typeProd" id="typeProd">
+                            <option value="all">Tất cả</option>
+                            <option value="iphone">Iphone</option>
+                            <option value="samsung">Samsung</option>
+                        </select>
                         <span id="invalidType"></span>
                     </div>
 
-                    <div class="add-product">
-                        <button class="btn-add-product">
+                    <div class=" button-product">
+                        <button id="btnAdd" class="btn-add-product">
                             <span class="material-symbols-sharp">add</span>
                             <h3>Add Product</h3>
                         </button>
+                        <button class="btn-edit-product">
+                            <span class="material-symbols-sharp">edit</span>
+                            <h3>Edit Product</h3>
+                        </button>
                     </div>
+
+                    
                 </form>
 
             </div>
