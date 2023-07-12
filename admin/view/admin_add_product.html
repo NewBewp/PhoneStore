@@ -175,6 +175,13 @@
 
                 <form id="formProduct">
                     <div class="itemForm">
+                        <label  for="idProd">
+                            <h3>Number Id</h3>
+                        </label>
+                        <input type="text" name="idProd" id="idProd">
+                        <span id="invalidId"></span>
+                    </div>
+                    <div class="itemForm">
                         <label  for="nameProd">
                             <h3>Name Product</h3>
                         </label>
@@ -224,7 +231,7 @@
                             <span class="material-symbols-sharp">add</span>
                             <h3>Add Product</h3>
                         </button>
-                        <button class="btn-edit-product">
+                        <button type="button" id="btnEdit" class="btn-edit-product">
                             <span class="material-symbols-sharp">edit</span>
                             <h3>Edit Product</h3>
                         </button>

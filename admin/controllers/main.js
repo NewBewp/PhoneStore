@@ -1,38 +1,24 @@
 import Product from "../models/Product.js";
 import { DOMAIN } from "../constants/api.js";
 
-const getElement = (selector) => document.querySelector(selector)
+const $ = (selector) => document.querySelector(selector)
 
 const getProductList = () => {
     const promise = axios({
         url: DOMAIN,
         method: 'GET'
     })
-
     promise
         .then((result) => {
-            renderProductList(result.data)
+            result.data;
+            console.log("data: ", result.data);
+            renderProductList(result.data);
         })
         .catch((err) => {
             console.log(err);
         });
-
 }
 getProductList();
-
-
-const getInfoProduct = () => {
-    const element = document.querySelectorAll('#formProduct input, #formProduct select')
-
-
-    let product = {}
-    element.forEach((ele) => {
-        const { name, value } = ele;
-        product[name] = value
-    })
-    const { name, img, price, descr, type, id } = product;
-    return new Product(name, img, price, descr, type, id);
-}
 
 const renderProductList = (arrProduct) => {
     let htmlContent = '';
@@ -48,22 +34,50 @@ const renderProductList = (arrProduct) => {
                 </td>
                 <td>${item.type}</td>
 
-                <td> 
+                <td>
                     <button class="danger delete">Delete</button>
                     <button class="success edit">Edit</button>
                 </td>
             </tr>
         `
     })
-    getElement('#tbodyProduct').innerHTML = htmlContent;
+    $('#tbodyProduct').innerHTML = htmlContent;
 }
+
+const getInfoProduct = () => {
+    let product = {}
+    const element = document.querySelectorAll(
+        '#formProduct input, #formProduct select'
+    )
+    console.log('element: ', element);
+    element.forEach((element) => {
+        const { name, value } = element;
+        product[name] = value;
+    })
+
+    const { nameProd, imgProd, priceProd, descrProd, typeProd, idProd } = product;
+    return new Product(nameProd, imgProd, priceProd, descrProd, typeProd, idProd);
+}
+
+$('#btnAdd').onclick = () => {
+    const product = getInfoProduct();
+    console.log(product);
+
+    const promise = axios({
+        url: DOMAIN,
+        method: 'POST',
+        data: {...product,}
+    })
+}
+
+
 
 
 // them product
 
-getElement('#btnAdd').onclick = () => {
-    const product = getInfoProduct()
-    console.log('product: ', product);
+// getElement('#btnAdd').onclick = () => {
+//     const product = getInfoProduct()
+//     console.log('product: ', product);
 
     // const promise = axios({
 
@@ -79,4 +93,4 @@ getElement('#btnAdd').onclick = () => {
     //     .catch((err) => {
     //         console.log(err);
     //     })
-}
+// }
