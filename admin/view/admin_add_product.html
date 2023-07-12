@@ -219,8 +219,8 @@
                         <span id="invalidType"></span>
                     </div>
 
-                    <div class=" button-product">
-                        <button id="btnAdd" class="btn-add-product">
+                    <div class="button-product">
+                        <button type="button" id="btnAdd" class="btn-add-product">
                             <span class="material-symbols-sharp">add</span>
                             <h3>Add Product</h3>
                         </button>
@@ -228,10 +228,9 @@
                             <span class="material-symbols-sharp">edit</span>
                             <h3>Edit Product</h3>
                         </button>
-                    </div>
-
-                    
+                    </div>           
                 </form>
+                   
 
             </div>
             <!----END OF FORM INPUT PRODUCT---->
@@ -342,8 +341,12 @@
         </div>
     </div>
 
+    <!-- AXIOS -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <!-- MY JS -->
-    <script src="../service/admin_home.js"></script>
+    <script type="module" src="../../admin/service/admin_home.js"></script>
+    <script type="module" src="../../admin/controllers/main.js"></script>
 
 </body>
 
