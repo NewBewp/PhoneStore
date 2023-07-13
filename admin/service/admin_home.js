@@ -84,8 +84,8 @@ const getInfoProduct = () => {
 
     })
 
-    const { name, img, price, descr, type, id } = product;
-    return new Product(name, img, price, descr, type, id);
+    const { id, name, img, price, descr, type } = product;
+    return new Product(id, name, img, price, descr, type);
 }
 // them san pham
 $('#btnAdd').onclick = () => {
@@ -124,12 +124,17 @@ window.deleteProduct = (id) => {
 
 //update san pham
 //dua thong tin san pham len form
+
+
 window.editProduct = (id) => {
+
 
     document.getElementById('tableProd').style.display = 'none';
     document.getElementById('inputForm').style.display = 'block';
     document.getElementById('btnEdit').style.display = 'block'
     document.getElementById('btnAdd').style.display = 'none'
+
+    document.getElementById('btnEdit').setAttribute('data-id', id)
 
     const promise = axios({
         url: `${DOMAIN}/${id}`,
@@ -144,11 +149,11 @@ window.editProduct = (id) => {
             )
             element.forEach((ele) => {
                 const { name, value } = ele
-                console.log('value: ', value);
+                // console.log('value: ', value);
                 // console.log('name: ',name.value);
                 // console.log('value: ',ele.value)
                 ele.value = result.data[name]
-                console.log(ele.value)
+                // console.log(ele.value)
             })
         })
         .catch((err) => {
@@ -156,4 +161,29 @@ window.editProduct = (id) => {
         })
 }
 
+$('#btnEdit').onclick = () => {
 
+    //lay thong tin tu input
+    const product = getInfoProduct()
+
+    const id = document.getElementById('btnEdit').getAttribute('data-id')
+
+
+    const promise = axios({
+        url: `${DOMAIN}/${id}`,
+        method: 'PUT',
+        data: product
+    })
+
+    promise
+        .then(() => {
+            getProductList()
+            $('#goCustomer').click();
+            // xoa setAttribute neu co
+            document.getElementById('btnEdit').toggleAttribute('data-id', false)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+
+}
