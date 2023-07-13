@@ -431,13 +431,15 @@ main .recent-orders table:hover {
   box-shadow: none;
 }
 @media screen and (max-width: 1200px) {
-  main .recent-orders table thead tr {
-    th: nth-child(2);
+  main .recent-orders table thead tr th:nth-child(4),
+  main .recent-orders table thead tr th:nth-child(5) {
+    display: none;
   }
 }
 @media screen and (max-width: 1200px) {
-  main .recent-orders table tbody tr {
-    td: nth-child(2);
+  main .recent-orders table tbody tr td:nth-child(4),
+  main .recent-orders table tbody tr td:nth-child(5) {
+    display: none;
   }
 }
 main .recent-orders table tbody tr:last-child td {

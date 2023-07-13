@@ -1,7 +1,7 @@
 import Product from "../models/Product.js";
 import { DOMAIN } from "../constants/api.js";
 
-const $ = (selector) => document.querySelector(selector)
+const getElement = (selector) => document.querySelector(selector)
 
 const getProductList = () => {
     const promise = axios({
@@ -10,9 +10,8 @@ const getProductList = () => {
     })
     promise
         .then((result) => {
-            result.data;
-            console.log("data: ", result.data);
-            renderProductList(result.data);
+            console.log('result: ',result);
+            renderProduct(result.data);
         })
         .catch((err) => {
             console.log(err);
@@ -20,7 +19,7 @@ const getProductList = () => {
 }
 getProductList();
 
-const renderProductList = (arrProduct) => {
+const renderProduct = (arrProduct) => {
     let htmlContent = '';
     arrProduct.forEach((item) => {
         htmlContent += `
@@ -35,13 +34,13 @@ const renderProductList = (arrProduct) => {
                 <td>${item.type}</td>
 
                 <td>
-                    <button class="danger delete">Delete</button>
+                    <button id="deleteProd" onclick="deleteProduct(${item.id})" class="danger delete">Delete</button>
                     <button class="success edit">Edit</button>
                 </td>
             </tr>
         `
     })
-    $('#tbodyProduct').innerHTML = htmlContent;
+    getElement('#tbodyProduct').innerHTML = htmlContent;
 }
 
 const getInfoProduct = () => {
@@ -59,7 +58,7 @@ const getInfoProduct = () => {
     return new Product(nameProd, imgProd, priceProd, descrProd, typeProd, idProd);
 }
 //them san pham
-$('#btnAdd').onclick = () => {
+getElement('#btnAdd').onclick = () => {
     const product = getInfoProduct();
     console.log(product);
 
@@ -70,12 +69,29 @@ $('#btnAdd').onclick = () => {
     });
     promise
         .then((result) => {
-            getProductList()
+            getProductList();
+            getElement('#goCustomer').click();
         })
         .catch((err) => {
             console.log(err);
         }); 
 }
 
+//xoa san pham
+window.deleteProduct = (id)=>{
+    console.log({id});
 
+    const promise = axios({
+        url: `${DOMAIN}/${id}`,
+        method: 'DELETE'
+    })
 
+    promise
+        .then(()=>{
+            getProductList()
+            getElement('#goCustomer').click();
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+}

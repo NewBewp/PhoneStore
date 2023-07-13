@@ -193,10 +193,14 @@ main {
             thead {
                 tr {
                     @include tablet {
-                        th:nth-child(2),
-                        // th:last-child {
-                        //     display: none;
-                        // }
+                        // th:first-child,
+                        th:nth-child(4),
+                        th:nth-child(5) {
+                            display: none;
+                        }
+
+
+
                     }
                 }
             }
@@ -206,11 +210,13 @@ main {
                 tr {
 
                     @include tablet {
+                        // td:first-child,
+                        td:nth-child(4),
+                        td:nth-child(5) {
+                            display: none;
+                        }
 
-                        td:nth-child(2),
-                        // td:last-child {
-                        //     display: none;
-                        // }
+
                     }
                 }
 
