@@ -27,8 +27,7 @@
                 align-items: center;
                 justify-content: center;
                 transition: all .3s ease;
-                // display: none;
-                position: relative;
+
 
                 h3 {
                     font-weight: 700;
@@ -40,7 +39,7 @@
                 }
             }
 
-            .btn-edit-product{                
+            .btn-edit-product {
                 cursor: pointer;
                 display: flex;
                 align-items: center;
@@ -54,7 +53,6 @@
                 justify-content: center;
                 transition: all .3s ease;
                 display: none;
-                position: absolute;
 
                 h3 {
                     font-weight: 700;
@@ -95,7 +93,7 @@
                 }
             }
 
-            select{
+            select {
                 border: 1px solid $color-light;
                 border-radius: $border-radius-1;
                 padding: $card-padding;

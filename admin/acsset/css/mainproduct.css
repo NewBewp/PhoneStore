@@ -668,7 +668,6 @@ main .recent-orders table tbody td .edit:hover {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  position: relative;
 }
 .inputProduct form .button-product .btn-add-product h3 {
   font-weight: 700;
@@ -691,7 +690,6 @@ main .recent-orders table tbody td .edit:hover {
   justify-content: center;
   transition: all 0.3s ease;
   display: none;
-  position: absolute;
 }
 .inputProduct form .button-product .btn-edit-product h3 {
   font-weight: 700;

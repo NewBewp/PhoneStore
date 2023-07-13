@@ -10,14 +10,15 @@ function closeAside() {
     document.getElementById("aside_right").style.display = "none";
 }
 document.getElementById("close-btn").onclick = closeAside
-// mo form input 
 
+// mo form input 
 const openForm = () => {
     document.getElementById('tableProd').style.display = 'none';
     document.getElementById('inputForm').style.display = 'block';
     document.getElementById('goCustomer').className = 'none';
     document.getElementById('open').className = 'active';
-
+    document.getElementById('btnAdd').style.display = 'block'
+    document.getElementById('btnEdit').style.display = 'none'
 }
 document.getElementById('open').onclick = openForm
 
@@ -26,9 +27,10 @@ const hideForm = () => {
     document.getElementById('inputForm').style.display = 'none';
     document.getElementById('goCustomer').className = 'active';
     document.getElementById('open').className = 'none';
-
 }
 document.getElementById('goCustomer').onclick = hideForm
+
+
 
 const $ = (selector) => document.querySelector(selector)
 
@@ -39,7 +41,6 @@ const getProductList = () => {
     })
     promise
         .then((result) => {
-            console.log('result: ', result);
             renderProduct(result.data);
         })
         .catch((err) => {
@@ -61,9 +62,9 @@ const renderProduct = (arrProduct) => {
                     <img src="${item.img}" style="width: 100px; height: 100px; object-fit: cover; object-position: center;">
                 </td>
                 <td>${item.type}</td>
-
                 <td>
-                <button id="deleteProd" onclick="deleteProduct(${item.id})" class="danger delete">Delete</button>                    <button class="success edit">Edit</button>
+                    <button id="deleteProd" onclick="deleteProduct(${item.id})" class="danger delete">Delete</button>
+                    <button id="editProd" onclick="editProduct(${item.id})" class="success edit">Edit</button>
                 </td>
             </tr>
         `
@@ -76,19 +77,19 @@ const getInfoProduct = () => {
     const element = document.querySelectorAll(
         '#formProduct input, #formProduct select'
     )
-    console.log('element: ', element);
-    element.forEach((element) => {
-        const { name, value } = element;
+
+    element.forEach((ele) => {
+        const { name, value } = ele;
         product[name] = value;
+
     })
 
-    const { nameProd, imgProd, priceProd, descrProd, typeProd, idProd } = product;
-    return new Product(nameProd, imgProd, priceProd, descrProd, typeProd, idProd);
+    const { name, img, price, descr, type, id } = product;
+    return new Product(name, img, price, descr, type, id);
 }
 // them san pham
 $('#btnAdd').onclick = () => {
     const product = getInfoProduct();
-    console.log(product);
 
     const promise = axios({
         url: DOMAIN,
@@ -107,8 +108,6 @@ $('#btnAdd').onclick = () => {
 
 //xoa san pham
 window.deleteProduct = (id) => {
-    console.log({ id });
-
     const promise = axios({
         url: `${DOMAIN}/${id}`,
         method: 'DELETE'
@@ -122,4 +121,39 @@ window.deleteProduct = (id) => {
             console.log(err);
         })
 }
+
+//update san pham
+//dua thong tin san pham len form
+window.editProduct = (id) => {
+
+    document.getElementById('tableProd').style.display = 'none';
+    document.getElementById('inputForm').style.display = 'block';
+    document.getElementById('btnEdit').style.display = 'block'
+    document.getElementById('btnAdd').style.display = 'none'
+
+    const promise = axios({
+        url: `${DOMAIN}/${id}`,
+        method: 'GET'
+    })
+
+    promise
+        .then((result) => {
+            // console.log('data:',result.data);
+            const element = document.querySelectorAll(
+                '#formProduct input, #formProduct select'
+            )
+            element.forEach((ele) => {
+                const { name, value } = ele
+                console.log('value: ', value);
+                // console.log('name: ',name.value);
+                // console.log('value: ',ele.value)
+                ele.value = result.data[name]
+                console.log(ele.value)
+            })
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}
+
 
