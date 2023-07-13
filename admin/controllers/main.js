@@ -1,7 +1,7 @@
 import Product from "../models/Product.js";
 import { DOMAIN } from "../constants/api.js";
 
-const getElement = (selector) => document.querySelector(selector)
+const $ = (selector) => document.querySelector(selector)
 
 const getProductList = () => {
     const promise = axios({
@@ -40,7 +40,7 @@ const renderProduct = (arrProduct) => {
             </tr>
         `
     })
-    getElement('#tbodyProduct').innerHTML = htmlContent;
+    $('#tbodyProduct').innerHTML = htmlContent;
 }
 
 const getInfoProduct = () => {
@@ -58,7 +58,7 @@ const getInfoProduct = () => {
     return new Product(nameProd, imgProd, priceProd, descrProd, typeProd, idProd);
 }
 //them san pham
-getElement('#btnAdd').onclick = () => {
+$('#btnAdd').onclick = () => {
     const product = getInfoProduct();
     console.log(product);
 
@@ -70,7 +70,7 @@ getElement('#btnAdd').onclick = () => {
     promise
         .then((result) => {
             getProductList();
-            getElement('#goCustomer').click();
+            $('#goCustomer').click();
         })
         .catch((err) => {
             console.log(err);
@@ -89,7 +89,7 @@ window.deleteProduct = (id)=>{
     promise
         .then(()=>{
             getProductList()
-            getElement('#goCustomer').click();
+            $('#goCustomer').click();
         })
         .catch((err)=>{
             console.log(err);

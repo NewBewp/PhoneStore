@@ -38,7 +38,7 @@
                     </span>
                     <h3>Dashboard</h3>
                 </a>
-                <a id="goCustomer" href="../../admin/view/admin_home.html" class="active">
+                <a id="goCustomer" href="" class="active">
                     <span class="material-symbols-sharp">
                         person
                     </span>
@@ -77,7 +77,7 @@
                     </span>
                     <h3>Setting</h3>
                 </a>
-                <a href="./admin_add_product.html">
+                <a id="open" type="button" style="cursor: pointer;">
                     <span class="material-symbols-sharp">
                         add
                     </span>
@@ -171,7 +171,7 @@
             </div>
             <!------END OF TOTAL------>
 
-            <div class="recent-orders">
+            <div id="tableProd" class="recent-orders" style="display: block;">
                 <h2>Recent-orders</h2>
                 <table>
                     <thead>
@@ -181,7 +181,7 @@
                             <th>Price</th>
                             <th>Descr</th>
                             <th>Image</th>
-                            <th>Type</th>                            
+                            <th>Type</th>
                             <th></th>
                         </tr>
 
@@ -203,7 +203,80 @@
                 </table>
                 <!-- <a href="#">Show All</a> -->
             </div>
+
+            <div id="inputForm" class="inputProduct" style="display: none;">
+
+                <form id="formProduct">
+                    <div class="itemForm">
+                        <label for="idProd">
+                            <h3>Number Id</h3>
+                        </label>
+                        <input type="text" name="idProd" id="idProd">
+                        <span id="invalidId"></span>
+                    </div>
+                    <div class="itemForm">
+                        <label for="nameProd">
+                            <h3>Name Product</h3>
+                        </label>
+                        <input type="text" name="nameProd" id="nameProd">
+                        <span id="invalidName"></span>
+                    </div>
+                    <!-------->
+                    <div class="itemForm">
+                        <label for="imgProd">
+                            <h3>Image URL</h3>
+                        </label>
+                        <input type="text" name="imgProd" id="imgProd">
+                        <span id="invalidImg"></span>
+                    </div>
+                    <!-------->
+                    <div class="itemForm">
+                        <label for="priceProd">
+                            <h3>Price</h3>
+                        </label>
+                        <input type="number" name="priceProd" id="priceProd">
+                        <span id="invalidPrice"></span>
+                    </div>
+                    <!-------->
+                    <div class="itemForm">
+                        <label for="descrProd">
+                            <h3>Description</h3>
+                        </label>
+                        <input type="text" name="descrProd" id="descrProd">
+                        <span id="invalidDesc"></span>
+                    </div>
+                    <!-------->
+                    <div class="itemForm">
+                        <label for="typeProd">
+                            <h3>Type</h3>
+                        </label>
+                        <!-- <input type="text" name="typeProd" id="typeProd"> -->
+                        <select name="typeProd" id="typeProd">
+                            <option value="all">Tất cả</option>
+                            <option value="iphone">Iphone</option>
+                            <option value="samsung">Samsung</option>
+                        </select>
+                        <span id="invalidType"></span>
+                    </div>
+
+                    <div class="button-product">
+                        <button type="button" id="btnAdd" class="btn-add-product">
+                            <span class="material-symbols-sharp">add</span>
+                            <h3>Add Product</h3>
+                        </button>
+                        <button type="button" id="btnEdit" class="btn-edit-product">
+                            <span class="material-symbols-sharp">edit</span>
+                            <h3>Edit Product</h3>
+                        </button>
+                    </div>
+                </form>
+
+
+            </div>
+
         </main>
+
+
         <div class="right">
             <div class="top">
                 <button id="menu-btn">
@@ -304,12 +377,16 @@
                     </div>
                 </div>
 
-                <a href="./admin_add_product.html" class="item add-product">
+                <!-- <button type="button" id="openForm" class="item add-product">
+                    Add product
+                </button> -->
+
+                <!-- <a type="button" id="open" class="item add-product">
                     <div>
                         <span class="material-symbols-sharp">add</span>
                         <h3>Add Product</h3>
                     </div>
-                </a>
+                </a> -->
             </div>
         </div>
     </div>
@@ -318,10 +395,9 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <!-- MY JS -->
-    
-    <script type="module" src="../../admin/controllers/main.js"></script>
-    <script type="module" src="../../admin/service/admin_home.js"></script>
 
+    <!-- <script type="module" src="../../admin/controllers/main.js"></script> -->
+    <script type="module" src="../../admin/service/admin_home.js"></script>
 
 </body>
 
