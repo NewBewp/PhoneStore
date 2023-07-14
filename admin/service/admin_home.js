@@ -172,8 +172,7 @@ window.editProduct = (id) => {
     document.getElementById('btnAdd').style.display = 'none'
 
     //disable field id input
-    document.getElementById('#id').style.value = `${item.id}`
-
+    document.getElementById('id').disabled = true ;
 
     document.getElementById('btnEdit').setAttribute('data-id', id)
 
@@ -184,19 +183,17 @@ window.editProduct = (id) => {
 
     promise
         .then((result) => {
-            // console.log('data:',result.data);
-            // const element = document.querySelectorAll(
-            //     '#formProduct input, #formProduct select'
-            // )
 
-            // element.forEach((ele) => {
-            //     const { name, value } = ele
-            //     // console.log('value: ', value);
-            //     // console.log('name: ',name.value);
-            //     // console.log('value: ',ele.value)
-            //     ele.value = result.data[name]
-            //     // console.log(ele.value)
-            // })
+            const element = document.querySelectorAll(
+                '#formProduct input, #formProduct select'
+            )
+
+            element.forEach((ele) => {
+                const { name } = ele
+
+                ele.value = result.data[name]
+
+            })
         })
         .catch((err) => {
             console.log(err);
@@ -220,7 +217,6 @@ $('#btnEdit').onclick = () => {
     promise
         .then(() => {
             getProductList()
-            $('#goCustomer').click();
             // xoa setAttribute neu co
             document.getElementById('btnEdit').toggleAttribute('data-id', false)
         })
