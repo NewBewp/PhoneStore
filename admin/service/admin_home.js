@@ -1,4 +1,5 @@
 import Product from "../models/Product.js";
+import Validation from "../utils/validation.js";
 import { DOMAIN } from "../constants/api.js";
 
 function openAside() {
@@ -74,18 +75,40 @@ const renderProduct = (arrProduct) => {
 
 const getInfoProduct = () => {
     let product = {}
+    let isValid = true;
+
     const element = document.querySelectorAll(
         '#formProduct input, #formProduct select'
     )
 
     element.forEach((ele) => {
+        // console.log('ele: ',ele[name.d].value)
+       
         const { name, value } = ele;
-        product[name] = value;
+        
+        let vali= Validation.kiemTraChuoi({value},1,undefined,'#invalidId','block','Nhap vao gia tri')
+        console.log(vali);
 
+        // // console.log(ele);
+        // // console.log(ele.value)
+        
+
+        product[name] = value;         
+       
     })
 
+    
     const { id, name, img, price, descr, type } = product;
+
+
+    
+
+
+
+
     return new Product(id, name, img, price, descr, type);
+
+
 }
 // them san pham
 $('#btnAdd').onclick = () => {
@@ -99,7 +122,7 @@ $('#btnAdd').onclick = () => {
     promise
         .then((result) => {
             getProductList();
-            $('#goCustomer').click();
+            // $('#goCustomer').click();
         })
         .catch((err) => {
             console.log(err);
@@ -127,8 +150,6 @@ window.deleteProduct = (id) => {
 
 
 window.editProduct = (id) => {
-
-
     document.getElementById('tableProd').style.display = 'none';
     document.getElementById('inputForm').style.display = 'block';
     document.getElementById('btnEdit').style.display = 'block'
@@ -185,5 +206,4 @@ $('#btnEdit').onclick = () => {
         .catch((err) => {
             console.log(err)
         })
-
 }
