@@ -74,59 +74,75 @@ const renderProduct = (arrProduct) => {
 }
 
 const getInfoProduct = () => {
-    let product = {}
+
     let isValid = true;
 
-    const element = document.querySelectorAll(
-        '#formProduct input, #formProduct select'
-    )
+    // const element = document.querySelectorAll(
+    //     '#formProduct input, #formProduct select'
+    // )
 
-    element.forEach((ele) => {
-        // console.log('ele: ',ele[name.d].value)
-       
-        const { name, value } = ele;
-        
-        let vali= Validation.kiemTraChuoi({value},1,undefined,'#invalidId','block','Nhap vao gia tri')
-        console.log(vali);
+    // element.forEach((ele) => {
+    //     // console.log('ele: ',ele[name.d].value)
 
-        // // console.log(ele);
-        // // console.log(ele.value)
-        
+    //     const { name, value } = ele;
 
-        product[name] = value;         
-       
-    })
+    //     let vali= Validation.kiemTraChuoi({value},1,undefined,'#invalidId','block','Nhap vao gia tri')
+    //     console.log(vali);
 
-    
-    const { id, name, img, price, descr, type } = product;
+    //     // // console.log(ele);
+    //     // // console.log(ele.value)       
 
+    //     product[name] = value;    
 
-    
+    // })
 
+    //lấy thông tin từ user nhập
 
+    const id = $('#id').value;
+    const name = $('#name').value;
+    const img = $('#img').value;
+    const price = $('#price').value;
+    const descr = $('#descr').value;
+    const type = $('#type').value;
 
+    const product = new Product(id, name, img, price, descr, type);
 
-    return new Product(id, name, img, price, descr, type);
+    isValid = Validation.kiemTraChuoi(product.descr, 1, undefined, '#invalidDesc', '#invalidDesc', 'nhap gia tri di');
 
+    // console.log(isValid);
+    // const { id, name, img, price, descr, type } = product;
 
+    if (isValid) {
+        $('#goCustomer').click();
+        return Product
+    } else {
+        return undefined;
+    }
 }
+
 // them san pham
 $('#btnAdd').onclick = () => {
-    const product = getInfoProduct();
+    const product = getInfoProduct(false);
 
-    const promise = axios({
-        url: DOMAIN,
-        method: 'POST',
-        data: { ...product, }
-    });
-    promise
-        .then((result) => {
-            getProductList();
-            // $('#goCustomer').click();
-        })
-        .catch((err) => {
-            console.log(err);
+    if (product) {
+        const promise = axios({
+            url: DOMAIN,
+            method: 'POST',
+            data: { ...product, }
         });
+        promise
+            .then((result) => {
+                getProductList();
+
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+    // else {
+    //     alert('Mô tả sản phẩm không hợp lệ!');
+    // }
+
 }
 
 //xoa san pham
@@ -155,6 +171,10 @@ window.editProduct = (id) => {
     document.getElementById('btnEdit').style.display = 'block'
     document.getElementById('btnAdd').style.display = 'none'
 
+    //disable field id input
+    document.getElementById('#id').style.value = `${item.id}`
+
+
     document.getElementById('btnEdit').setAttribute('data-id', id)
 
     const promise = axios({
@@ -165,17 +185,18 @@ window.editProduct = (id) => {
     promise
         .then((result) => {
             // console.log('data:',result.data);
-            const element = document.querySelectorAll(
-                '#formProduct input, #formProduct select'
-            )
-            element.forEach((ele) => {
-                const { name, value } = ele
-                // console.log('value: ', value);
-                // console.log('name: ',name.value);
-                // console.log('value: ',ele.value)
-                ele.value = result.data[name]
-                // console.log(ele.value)
-            })
+            // const element = document.querySelectorAll(
+            //     '#formProduct input, #formProduct select'
+            // )
+
+            // element.forEach((ele) => {
+            //     const { name, value } = ele
+            //     // console.log('value: ', value);
+            //     // console.log('name: ',name.value);
+            //     // console.log('value: ',ele.value)
+            //     ele.value = result.data[name]
+            //     // console.log(ele.value)
+            // })
         })
         .catch((err) => {
             console.log(err);

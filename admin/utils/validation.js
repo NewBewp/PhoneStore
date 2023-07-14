@@ -1,25 +1,27 @@
 
 class Valid {
-/**
- * 
- * @param {*} value giá trị chuỗi cần kiểm tra
- * @param {*} minLength độ dài tối thiểu của chuỗi
- * @param {*} maxLength độ dài tối đa của chuỗi (nếu maxLegth = undefined và minLeght = 1 => kiểm tra rỗng)
- * @param {*} selector selector của thẻ cần hiển thị lỗi
- * @param {*} style selector thay đổi style
- * @param {*} messErr lỗi cần hiển thị lên UI nếu value không thỏa mãn điều kiện
- */
-       getElement (selector){
-        return document.querySelector(selector)};
+    /**
+     * 
+     * @param {*} value giá trị chuỗi cần kiểm tra
+     * @param {*} minLength độ dài tối thiểu của chuỗi
+     * @param {*} maxLength độ dài tối đa của chuỗi (nếu maxLegth = undefined và minLeght = 1 => kiểm tra rỗng)
+     * @param {*} selector selector của thẻ cần hiển thị lỗi
+     * @param {*} style selector thay đổi style
+     * @param {*} messErr lỗi cần hiển thị lên UI nếu value không thỏa mãn điều kiện
+     */
 
-     kiemTraChuoi (value, minLength, maxLength, selector, style, messErr){
+    getElement(selector) {
+        return document.querySelector(selector)
+    };
+
+    kiemTraChuoi(value, minLength, maxLength, selector, style, messErr) {
         style = this.getElement(selector).style.display = "block";
 
         if (value.trim().length < Number(minLength) || value.trim().length > Number(maxLength)) {
-            getElement(selector).innerHTML = messErr;
+            this.getElement(selector).innerHTML = messErr;
             return false;
         } else {
-            getElement(selector).innerHTML = '';
+            this.getElement(selector).innerHTML = '';
             return true;
         }
     }
@@ -36,13 +38,13 @@ class Valid {
      */
 
     kiemTraGiaTri(value, min, max, selector, style, messErr) {
-        style = getElement(selector).style.display = "block";
+        style = this.getElement(selector).style.display = "block";
         // if (value < 1000000 || value > 20000000) {
         if (value < parseInt(min) || value > parseInt(max)) {
-            getElement(selector).innerHTML = messErr;
+            this.getElement(selector).innerHTML = messErr;
             return false;
         } else {
-            getElement(selector).innerHTML = '';
+            this.getElement(selector).innerHTML = '';
             return true;
         }
 
@@ -58,17 +60,17 @@ class Valid {
      */
 
     kiemTraPattern(value, selector, style, pattern, messErr) {
-        style = getElement(selector).style.display = "block";
+        style = gthis.etElement(selector).style.display = "block";
         if (!pattern.test(value)) {
-            getElement(selector).innerHTML = messErr;
+            this.getElement(selector).innerHTML = messErr;
             return false
         } else {
-            getElement(selector).innerHTML = "";
+            this.getElement(selector).innerHTML = "";
             return true
         }
     }
 
-
+//////////chưa xử lý được
     kiemTraTKNV(tknv, dsnv, isEdit, selector, messErr) {
         if (isEdit) {
             return true;

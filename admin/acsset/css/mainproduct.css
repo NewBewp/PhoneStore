@@ -706,6 +706,9 @@ main .recent-orders table tbody td .edit:hover {
 .inputProduct form .itemForm label {
   margin-bottom: 1rem;
 }
+.inputProduct form .itemForm span {
+  color: red;
+}
 .inputProduct form .itemForm input {
   border: 1px solid rgba(132, 139, 200, 0.18);
   border-radius: 0.4rem;
