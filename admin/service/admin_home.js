@@ -60,12 +60,20 @@ const renderProduct = (arrProduct) => {
                 <td>${item.price}</td>
                 <td>${item.descr}</td>
                 <td>
-                    <img src="${item.img}" style="width: 100px; height: 100px; object-fit: cover; object-position: center;">
+                    <img src="${item.img}" style="width: 100px; object-fit: cover; object-position: center;">
                 </td>
                 <td>${item.type}</td>
                 <td>
-                    <button id="deleteProd" onclick="deleteProduct(${item.id})" class="danger delete">Delete</button>
-                    <button id="editProd" onclick="editProduct(${item.id})" class="success edit">Edit</button>
+                    <button id="deleteProd" onclick="deleteProduct(${item.id})" class="danger delete">
+                        <span class="material-symbols-sharp">
+                                delete
+                        </span>
+                    </button>
+                    <button id="editProd" onclick="editProduct(${item.id})" class="success edit">
+                        <span class="material-symbols-sharp">
+                            edit
+                        </span>
+                    </button>
                 </td>
             </tr>
         `
@@ -106,17 +114,25 @@ const getInfoProduct = () => {
     const type = $('#type').value;
 
     const product = new Product(id, name, img, price, descr, type);
+    //valid ten san pham
+    isValid = Validation.kiemTraChuoi(product.name, 1, undefined, '#invalidName', '#invalidName', 'Nhập tên sản phẩm');
+    //valid link hinh anh
+    isValid = Validation.kiemTraChuoi(product.img, 1, undefined, '#invalidImg', '#invalidImg', 'Nhập link hình ảnh');
+    //vaild gia san pham
+    isValid &=
+        Validation.kiemTraChuoi(product.price, 1, undefined, '#invalidPrice', '#invalidPrice', 'Nhập giá sản phẩm') &&
+        Validation.kiemTraPattern(product.price, '#invalidPrice', '#invalidPrice', /^[0-9]*$/, 'Giá không hợp lệ');
 
-    isValid = Validation.kiemTraChuoi(product.descr, 1, undefined, '#invalidDesc', '#invalidDesc', 'nhap gia tri di');
+    //valid loai san pham
+    isValid = Validation.kiemTraChuoi(product.type, 1, undefined, '#invalidType', '#invalidType', 'Chọn loại sản phẩm');
 
-    // console.log(isValid);
+    console.log(product.name)
+
+    console.log(isValid);
     // const { id, name, img, price, descr, type } = product;
 
     if (isValid) {
-        $('#goCustomer').click();
-        return Product
-    } else {
-        return undefined;
+        return product
     }
 }
 
@@ -133,11 +149,13 @@ $('#btnAdd').onclick = () => {
         promise
             .then((result) => {
                 getProductList();
+                alert('Đã thêm sản phẩm thành công')
 
             })
             .catch((err) => {
                 console.log(err);
             });
+
     }
     // else {
     //     alert('Mô tả sản phẩm không hợp lệ!');
@@ -170,9 +188,10 @@ window.editProduct = (id) => {
     document.getElementById('inputForm').style.display = 'block';
     document.getElementById('btnEdit').style.display = 'block'
     document.getElementById('btnAdd').style.display = 'none'
+    // document.getElementById('idDisplay').style.display = 'block'
 
     //disable field id input
-    document.getElementById('id').disabled = true ;
+    // document.getElementById('id').disabled = true;
 
     document.getElementById('btnEdit').setAttribute('data-id', id)
 
@@ -190,10 +209,10 @@ window.editProduct = (id) => {
 
             element.forEach((ele) => {
                 const { name } = ele
-
                 ele.value = result.data[name]
-
             })
+
+
         })
         .catch((err) => {
             console.log(err);
@@ -203,24 +222,48 @@ window.editProduct = (id) => {
 $('#btnEdit').onclick = () => {
 
     //lay thong tin tu input
-    const product = getInfoProduct()
+    const product = getInfoProduct(false)
 
     const id = document.getElementById('btnEdit').getAttribute('data-id')
 
+    console.log('id:', id);
+
+    if (product) {
+        const promise = axios({
+            url: `${DOMAIN}/${id}`,
+            method: 'PUT',
+            data: product
+        })
+
+        promise
+            .then(() => {
+                getProductList()
+                // xoa setAttribute neu co
+                // document.getElementById('btnEdit').toggleAttribute('data-id', false)
+                alert('Cập nhật thành công')
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+}
+//tìm theo loại sản phẩm
+$('#typePhone').onchange = (value) => {
+    let typePhone = $('#typePhone').value
 
     const promise = axios({
-        url: `${DOMAIN}/${id}`,
-        method: 'PUT',
-        data: product
+        url: `${DOMAIN}/?type=${typePhone}`,
+        method: 'GET',
     })
 
     promise
-        .then(() => {
-            getProductList()
-            // xoa setAttribute neu co
-            document.getElementById('btnEdit').toggleAttribute('data-id', false)
-        })
+        .then((result)=>{
+            console.log(result.data);
+            renderProduct(result.data)
+         })
         .catch((err) => {
             console.log(err)
         })
 }
+
+

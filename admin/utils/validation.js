@@ -60,8 +60,9 @@ class Valid {
      */
 
     kiemTraPattern(value, selector, style, pattern, messErr) {
-        style = gthis.etElement(selector).style.display = "block";
-        if (!pattern.test(value)) {
+        style = this.getElement(selector).style.display = "block";
+        console.log(pattern.test(value))
+        if (!pattern.test(value)) {            
             this.getElement(selector).innerHTML = messErr;
             return false
         } else {
@@ -71,34 +72,34 @@ class Valid {
     }
 
 //////////chưa xử lý được
-    kiemTraTKNV(tknv, dsnv, isEdit, selector, messErr) {
-        if (isEdit) {
-            return true;
-        }
+    // kiemTraTKNV(tknv, dsnv, isEdit, selector, messErr) {
+    //     if (isEdit) {
+    //         return true;
+    //     }
 
-        var isFlag = true;
+    //     var isFlag = true;
 
-        for (var i = 0; i < dsnv.length; i++) {
-            if (dsnv[i].tknv === tknv) {
-                isFlag = false;
-                break
-            }
-        }
+    //     for (var i = 0; i < dsnv.length; i++) {
+    //         if (dsnv[i].tknv === tknv) {
+    //             isFlag = false;
+    //             break
+    //         }
+    //     }
 
-        if (!isFlag) {
-            getElement(selector).innerHTML = messErr;
-            return false
-        } else {
-            getElement(selector).innerHTML = "";
-            return true
-        }
+    //     if (!isFlag) {
+    //         getElement(selector).innerHTML = messErr;
+    //         return false
+    //     } else {
+    //         getElement(selector).innerHTML = "";
+    //         return true
+    //     }
 
-        // if(isFlag){
-        //     getElement(selector).innerHTML = '';
-        //     return true;
-        // }
+    //     // if(isFlag){
+    //     //     getElement(selector).innerHTML = '';
+    //     //     return true;
+    //     // }
 
-    }
+    // }
 }
 
 

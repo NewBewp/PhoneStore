@@ -32,25 +32,25 @@
                 </div>
             </div>
             <div class="sidebar">
-                <a href="#">
+                <!-- <a href="#">
                     <span class="material-symbols-sharp">
                         grid_view
                     </span>
                     <h3>Dashboard</h3>
-                </a>
+                </a> -->
                 <a id="goCustomer" href="" class="active">
                     <span class="material-symbols-sharp">
                         person
                     </span>
                     <h3>Customer</h3>
                 </a>
-                <a href="#">
+                <!-- <a href="#">
                     <span class="material-symbols-sharp">
                         receipt_long
                     </span>
                     <h3>Order</h3>
-                </a>
-                <a href="#">
+                </a> -->
+                <!-- <a href="#">
                     <span class="material-symbols-sharp">
                         chat
                     </span>
@@ -58,8 +58,8 @@
                     <span class="message-count">
                         36
                     </span>
-                </a>
-                <a href="#">
+                </a> -->
+                <!-- <a href="#">
                     <span class="material-symbols-sharp">
                         inventory_2
                     </span>
@@ -76,7 +76,7 @@
                         settings
                     </span>
                     <h3>Setting</h3>
-                </a>
+                </a> -->
                 <a id="open" type="button" style="cursor: pointer;">
                     <span class="material-symbols-sharp">
                         add
@@ -96,8 +96,17 @@
         <main>
             <h1>Dashboard</h1>
             <div class="date">
-                <input type="date">
+                <select name="typePhone" id="typePhone">
+                    <option value="">All</option>
+                    <option value="iphone">iphone</option>
+                    <option value="samsung">samsung</option>
+                </select>
             </div>
+            <div class="date">
+                <label for="searchName">Search</label>
+                <input name="searchName" type="text">
+            </div>
+            
             <div class="insights">
                 <div class="sales divcard">
                     <span class="material-symbols-sharp">
@@ -207,7 +216,7 @@
             <div id="inputForm" class="inputProduct" style="display: none;">
 
                 <form id="formProduct">
-                    <div class="itemForm">
+                    <div class="itemForm" id="idDisplay" style="display: none;">
                         <label for="idProd">
                             <h3>Number Id</h3>
                         </label>
@@ -234,7 +243,7 @@
                         <label for="priceProd">
                             <h3>Price</h3>
                         </label>
-                        <input type="number" name="price" id="price">
+                        <input type="text" name="price" id="price">
                         <span id="invalidPrice"></span>
                     </div>
                     <!-------->
@@ -252,7 +261,7 @@
                         </label>
                         <!-- <input type="text" name="typeProd" id="typeProd"> -->
                         <select name="type" id="type">
-                            <option value="all">Tất cả</option>
+                            <option value=""></option>
                             <option value="iphone">Iphone</option>
                             <option value="samsung">Samsung</option>
                         </select>
