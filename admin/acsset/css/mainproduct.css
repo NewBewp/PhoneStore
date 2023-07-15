@@ -384,10 +384,8 @@ main .recent-orders {
 }
 @media screen and (max-width: 1200px) {
   main .recent-orders {
-    width: 100%;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
     margin: 2rem 0 0 8.8rem;
   }
 }
@@ -409,17 +407,12 @@ main .recent-orders h2 {
 }
 main .recent-orders table {
   background: #fff;
-  width: 100%;
+  width: 100wh;
   border-radius: 2rem;
   padding: 1rem 1.8rem;
   text-align: center;
   box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
   transition: all 0.3s ease;
-}
-@media screen and (max-width: 1200px) {
-  main .recent-orders table {
-    width: 85vw;
-  }
 }
 @media screen and (max-width: 768px) {
   main .recent-orders table {
@@ -563,6 +556,7 @@ main .recent-orders table tbody td .edit:hover {
 }
 .right .recent-updates {
   margin-top: 1rem;
+  display: none;
 }
 .right .recent-updates .updates {
   background: #fff;
@@ -586,6 +580,7 @@ main .recent-orders table tbody td .edit:hover {
 }
 .right .sale-analytics {
   margin-top: 2rem;
+  display: none;
 }
 .right .sale-analytics h2 {
   margin-bottom: 0.8rem;
@@ -647,7 +642,7 @@ main .recent-orders table tbody td .edit:hover {
 }
 .inputProduct form {
   background: #fff;
-  width: 100%;
+  width: 100wh;
   border-radius: 2rem;
   padding: 1rem 1.8rem;
 }

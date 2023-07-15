@@ -108,7 +108,7 @@ const getInfoProduct = () => {
 
     const id = $('#id').value;
     const name = $('#name').value;
-    const img = $('#img').value;
+    const img = document.getElementById('img').value;
     const price = $('#price').value;
     const descr = $('#descr').value;
     const type = $('#type').value;
@@ -118,6 +118,9 @@ const getInfoProduct = () => {
     isValid = Validation.kiemTraChuoi(product.name, 1, undefined, '#invalidName', '#invalidName', 'Nhập tên sản phẩm');
     //valid link hinh anh
     isValid = Validation.kiemTraChuoi(product.img, 1, undefined, '#invalidImg', '#invalidImg', 'Nhập link hình ảnh');
+
+    // console.log('img',Validation.kiemTraChuoi(product.img, 1, undefined, '#invalidImg', '#invalidImg', 'Nhập link hình ảnh'));
+
     //vaild gia san pham
     isValid &=
         Validation.kiemTraChuoi(product.price, 1, undefined, '#invalidPrice', '#invalidPrice', 'Nhập giá sản phẩm') &&
@@ -125,8 +128,6 @@ const getInfoProduct = () => {
 
     //valid loai san pham
     isValid = Validation.kiemTraChuoi(product.type, 1, undefined, '#invalidType', '#invalidType', 'Chọn loại sản phẩm');
-
-    console.log(product.name)
 
     console.log(isValid);
     // const { id, name, img, price, descr, type } = product;
@@ -247,23 +248,76 @@ $('#btnEdit').onclick = () => {
             })
     }
 }
+
 //tìm theo loại sản phẩm
 $('#typePhone').onchange = (value) => {
-    let typePhone = $('#typePhone').value
+    let typeValue = $('#typePhone').value;
 
     const promise = axios({
-        url: `${DOMAIN}/?type=${typePhone}`,
+        url: `${DOMAIN}/?type=${typeValue}`,
         method: 'GET',
     })
 
     promise
-        .then((result)=>{
+        .then((result) => {
             console.log(result.data);
             renderProduct(result.data)
-         })
+        })
         .catch((err) => {
             console.log(err)
         })
 }
 
+//tim theo ten san pham
+$('#searchName').onchange = (value) => {
+    let searchValue = $('#searchName').value;
 
+    console.log(searchValue);
+
+    const promise = axios({
+        url: `${DOMAIN}/?name=${searchValue}`,
+        method: 'GET',
+    })
+
+    promise
+        .then((result) => {
+            console.log(result.data);
+            renderProduct(result.data)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+}
+
+$('#pricePhone').onchange = (value) => {
+    let priceValue = $('#pricePhone').value;
+    let arrProduct = [];
+
+    console.log('pricePhone: ', priceValue);
+
+    const promise = axios({
+        url: DOMAIN,
+        method: 'GET',
+    })
+    promise
+        .then((result) => {
+            // console.log(result.data);
+            arrProduct = result.data;
+            // console.log(arrProduct);
+            if (priceValue == 'a-b') {
+                arrProduct.sort((a, b) => (a.price > b.price) ? 1 : -1)
+                console.log("Sắp xếp theo giá tiền từ thấp đến cao: ", arrProduct)
+
+                renderProduct(arrProduct)
+            }
+            else {
+                arrProduct.sort((a, b) => (a.price < b.price) ? 1 : -1)
+                console.log("Sắp xếp theo giá tiền từ cao đến thấp: ", arrProduct)
+                renderProduct(arrProduct)
+            }
+
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+}

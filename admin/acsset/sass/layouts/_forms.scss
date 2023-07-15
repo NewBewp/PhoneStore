@@ -5,9 +5,13 @@
 
     form {
         background: $white;
-        width: 100%;
+        width:100wh;
         border-radius: $card-border-radius;
         padding: $card-padding;
+
+        @include tablet{
+            
+        }
 
         .button-product {
             margin-top: 2rem;

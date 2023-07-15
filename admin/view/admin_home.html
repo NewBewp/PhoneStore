@@ -96,6 +96,7 @@
         <main>
             <h1>Dashboard</h1>
             <div class="date">
+                <label for="typePhone">Loại: </label>
                 <select name="typePhone" id="typePhone">
                     <option value="">All</option>
                     <option value="iphone">iphone</option>
@@ -103,11 +104,19 @@
                 </select>
             </div>
             <div class="date">
+                <label for="pricePhone">Thứ tự theo giá: </label>
+                <select name="pricePhone" id="pricePhone">    
+                    <option value="">All</option>        
+                    <option value="a-b">Từ thấp đến cao</option>
+                    <option value="b-a">Từ cao đến thấp</option>
+                </select>
+            </div>
+            <div class="date">
                 <label for="searchName">Search</label>
-                <input name="searchName" type="text">
+                <input name="searchName" id="searchName" type="text" >
             </div>
             
-            <div class="insights">
+            <div class="insights" style="display: none;">
                 <div class="sales divcard">
                     <span class="material-symbols-sharp">
                         analytics
