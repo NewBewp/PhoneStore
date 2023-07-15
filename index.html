@@ -32,7 +32,7 @@
                 </div>
                 <div class="col col-6 col-lg-5 col-xxl-6">
                     <form class="d-flex" role="search">
-                        <input class="form-control-lg form-control w-100 me-2" type="search"
+                        <input id="formSearch" onkeyup="handleSearch()" class="form-control-lg form-control w-100 me-2" type="search"
                             placeholder="  Tìm kiếm theo tên..." aria-label="Search">
                     </form>
                 </div>
@@ -76,7 +76,7 @@
             <div class="col col-12 col-lg-3 ">
                 <div class="box-sidebar">
                     <strong>Danh mục</strong>
-                    <div class="list-sidebar">
+                    <div class="list-sidebar product-sidebar">
                         <a href="">
                             <img width="30px" height="60px"
                                 src="customer/acsset/img/Apple-iPhone-13-Midnight-thumbna.png" alt=""><span
@@ -134,123 +134,16 @@
                 </div>
                 <div class="row">
                     <div class="col box-sidebar products">
-                        <h2 class="fw-bold ">Sản phẩm</h2>
-                        <div id="product_list" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
-                            <!-- <div class=" card_product ">
-                                <div class="p-2 border bg-success bg-opacity-25 rounded-2">
-                                    <div class="product-img">
-                                        <img style="max-height:260px;object-fit: contain;" class="card-img-top"
-                                            src="https://m.media-amazon.com/images/I/71Sa3dqTqzL._AC_UY327_FMwebp_QL65_.jpg"
-                                            alt="">
-                                    </div>
-                                    <div class="product-body p-3">
-                                        <h4 class="product-title fw-bold">Samsung s23 ultra</h4>
-                                        <p class="fs-4 text-danger fw-bold">22 000 000 VNĐ</p>
-                                        <div class="d-flex justify-content-evenly">
-                                            <button class="btn btn-primary text-white fw-bold" data-bs-toggle="modal"
-                                                data-bs-target="#staticBackdrop"><i
-                                                    class="fa-regular fa-eye me-2 fw-bold"></i>Xem thêm</button>
-                                            <button
-                                                class="btn_addToCart btn btn-outline-warning d-block  border border-3 border-warning py-2">
-                                                <span class="text-black fw-bold"><i
-                                                        class="fa-solid fa-cart-shopping"></i> Add</span>
-                                            </button>
-                                        </div>
-                                        
-                                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
-                                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog modal-xl">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h1 class="modal-title fs-4" id="staticBackdropLabel">Chi tiết
-                                                            sản phẩm</h1>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class='container mt-5'>
-                                                            <div class='productGroup row'>
-                                                                <div class='productImage col-sm-12 col-md-5 col-lg-6'>
-                                                                    <img src="customer/acsset/img/product_imgs/61i8Vjb17SL._AC_UY327_FMwebp_QL6.png"
-                                                                        alt='' class='img-fluid productImg' />
-                                                                    <div class='mt-4 productDescr'>
-                                                                        <hr />
-
-                                                                        <div class=' w-100'>
-                                                                            <h4 class=''>Tổng quan</h4>
-                                                                            <p>Aldus Corporation, which later merged
-                                                                                with Adobe
-                                                                                Systems, ushered lorem ipsum into the
-                                                                                information age with its desktop
-                                                                                publishing
-                                                                                software Aldus PageMaker. The program
-                                                                                came
-                                                                                bundled with lorem ipsum dummy text for
-                                                                                laying
-                                                                                out page content, and other word
-                                                                                processors like
-                                                                                Microsoft Word followed suit. More
-                                                                                recently the
-                                                                                growth of web design has helped
-                                                                                proliferate
-                                                                                lorem ipsum across the internet as a
-                                                                                placeholder
-                                                                                for future text—and in some cases the
-                                                                                final
-                                                                                content.</p>
-                                                                        </div>
-
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class='productInfo col-sm-12 col-md-5 col-lg-6'>
-                                                                    <h2>Casual red shirt</h2>
-                                                                    <div class=''>
-                                                                        <p class='text-danger fw-bold text-danger fs-2'>
-                                                                            20000</p>
-                                                                        <div class='star text-warning my-3'>
-                                                                            <i class='fas fa-star'></i>
-                                                                            <i class='fas fa-star'></i>
-                                                                            <i class='fas fa-star'></i>
-                                                                            <i class='fas fa-star'></i>
-                                                                            <i class='fas fa-star'></i>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class=''>
-                                                                        <p>- Mã sản phẩm 444996</p>
-                                                                        <p>- Hoàn hảo để mặc riêng hoặc phối
-                                                                            nhiều lớp.</p>
-                                                                        <p>- Thiết kế dáng rộng hiện đại thoải
-                                                                            mái.</p>
-                                                                        <p>- Họa tiết thiết kế đa năng.</p>
-                                                                    </div>
-
-                                                                    <hr>
-                                                                    </hr>
-
-                                                                    <h5 class='mt-4'>Số Lượng</h5>
-                                                                    <input type='number' class='p-3 ' />
-
-                                                                    <div class='mt-4'>
-                                                                        <button class='btn btn-danger fw-bold py-3'>
-                                                                            Thêm vào giỏ hàng
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Close</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
+                        <div class="d-flex justify-content-between mb-4" >
+                            <h2 class="fw-bold ">Sản phẩm</h2>
+                            <select id="selectType" class="form-select w-25 " aria-label="Default select example">
+                                <option selected value>Chọn loại sản phẩm</option>
+                                <option value="samsung">SamSung</option>
+                                <option value="iphone">Iphone</option>
+                              </select>
+                        </div>
+                        <div id="product_list" class="  g-4">
+                            
                         </div>
                     </div>
                 </div>

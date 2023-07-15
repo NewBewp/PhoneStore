@@ -5,8 +5,6 @@ function Product(_id, _hinhAnh, _name, _quantity,_price) {
     this.quantity = _quantity;
     this.price = _price;
 
-    this.tinhTotalPrice = function () {
-        return '11111' ;
-    }
+   
 }
 

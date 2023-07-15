@@ -14,15 +14,18 @@ const getOneProduct = (id) => {
     })
 }
 
-const updateProduct = (id, product) => {
-    // return api.put(`/products/${id}`, product);
-}
 
-const deleteProduct = (id) => {
-    // return api.delete(`/products/${id}`);
-}
+const getAllProductsOfType = (type) =>{
+    return axios({
+        url: `https://64a8600edca581464b85b0a9.mockapi.io/products/?type=${type}`,
+        method: 'GET'
+    })
+} 
+const getProductOfName = (name) =>{
+    return axios({
+        url: `https://64a8600edca581464b85b0a9.mockapi.io/products/?name=${name}`,
+        method: 'GET'
+    })
+} 
 
-const addProduct = (newProduct) => {
-    // return api.post(`/products/`, newProduct);
-}
-export default {getAllProducts,getOneProduct, updateProduct, deleteProduct, addProduct};
+export default {getAllProducts,getOneProduct,getAllProductsOfType, getProductOfName};

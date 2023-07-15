@@ -110,6 +110,12 @@ a {
   box-shadow: inset 1px 1px 3px #e2ebfc, inset -2px -2px 5px #fff;
 }
 
+#product_list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
 header {
   background-color: rgb(236, 99, 45);
 }
@@ -171,6 +177,21 @@ header .row .col .btn_cart i {
 }
 .main .row .col .box-sidebar .list-sidebar a:last-of-type {
   object-fit: cover;
+}
+
+@media screen and (max-width: 991.98px) {
+  #product_list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+@media screen and (max-width: 575.98px) {
+  #product_list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

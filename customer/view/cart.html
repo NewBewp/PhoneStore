@@ -31,10 +31,7 @@
                     </div>
                 </div>
                 <div class="col col-6 col-lg-5 col-xxl-6">
-                    <form class="d-flex" role="search">
-                        <input class="form-control-lg form-control w-100 me-2" type="search"
-                            placeholder="  Tìm kiếm theo tên..." aria-label="Search">
-                    </form>
+                   
                 </div>
                 <div class="col col-2 col-lg-auto col-xxl-3 d-none d-lg-flex">
                     <a href="/">
@@ -105,7 +102,22 @@
                             <td>Tong tien</td>
                         </tr> -->
                     </tbody>
+                    <tfoot>
+                        <td colspan="5" align="left"> Tổng tiền</td>
+                        <td > <span id="totalPrice"></span></td>
+                       
+                    </tfoot>
                 </table>
+                <a href="/"><i class="fa-solid fa-arrow-left"></i> Tiếp tục mua sắm</a>
+            </div>
+            <div class="col-12 col-md-12 col-lg-4">
+                
+                
+                <div id="content-hd">
+                    
+                </div>
+
+                
             </div>
         </div>
     </section>
@@ -117,6 +129,7 @@
     <script src="../../customer/model/DSSP.js"></script>
     <script src="../../customer/model/Product.js"></script>
     <script type="module" src="../../customer/controller/main.js"></script>
+    <script type="module" src="../../customer/controller/mainCart.js"></script>
 </body>
 
 </html>
