@@ -115,11 +115,11 @@ const getInfoProduct = () => {
 
     const product = new Product(id, name, img, price, descr, type);
     //valid ten san pham
-    isValid = Validation.kiemTraChuoi(product.name, 1, undefined, '#invalidName', '#invalidName', 'Nhập tên sản phẩm');
+    isValid &= Validation.kiemTraChuoi(product.name, 1, undefined, '#invalidName', '#invalidName', 'Nhập tên sản phẩm');
     //valid link hinh anh
-    isValid = Validation.kiemTraChuoi(product.img, 1, undefined, '#invalidImg', '#invalidImg', 'Nhập link hình ảnh');
+    isValid &= Validation.kiemTraChuoi(product.img, 1, undefined, '#invalidImg', '#invalidImg', 'Nhập link hình ảnh');
 
-    // console.log('img',Validation.kiemTraChuoi(product.img, 1, undefined, '#invalidImg', '#invalidImg', 'Nhập link hình ảnh'));
+    console.log('img',Validation.kiemTraChuoi(product.img, 1, undefined, '#invalidImg', '#invalidImg', 'Nhập link hình ảnh'));
 
     //vaild gia san pham
     isValid &=
@@ -127,7 +127,7 @@ const getInfoProduct = () => {
         Validation.kiemTraPattern(product.price, '#invalidPrice', '#invalidPrice', /^[0-9]*$/, 'Giá không hợp lệ');
 
     //valid loai san pham
-    isValid = Validation.kiemTraChuoi(product.type, 1, undefined, '#invalidType', '#invalidType', 'Chọn loại sản phẩm');
+    isValid &= Validation.kiemTraChuoi(product.type, 1, undefined, '#invalidType', '#invalidType', 'Chọn loại sản phẩm');
 
     console.log(isValid);
     // const { id, name, img, price, descr, type } = product;
@@ -304,15 +304,14 @@ $('#pricePhone').onchange = (value) => {
             // console.log(result.data);
             arrProduct = result.data;
             // console.log(arrProduct);
-            if (priceValue == 'a-b') {
+            if (priceValue == 'ab') {
                 arrProduct.sort((a, b) => (a.price > b.price) ? 1 : -1)
-                console.log("Sắp xếp theo giá tiền từ thấp đến cao: ", arrProduct)
-
+                console.log("thấp đến cao: ", arrProduct)
                 renderProduct(arrProduct)
             }
-            else {
+            else if (priceValue == 'ba'){
                 arrProduct.sort((a, b) => (a.price < b.price) ? 1 : -1)
-                console.log("Sắp xếp theo giá tiền từ cao đến thấp: ", arrProduct)
+                console.log("cao đến thấp: ", arrProduct)
                 renderProduct(arrProduct)
             }
 

@@ -61,7 +61,6 @@ class Valid {
 
     kiemTraPattern(value, selector, style, pattern, messErr) {
         style = this.getElement(selector).style.display = "block";
-        console.log(pattern.test(value))
         if (!pattern.test(value)) {            
             this.getElement(selector).innerHTML = messErr;
             return false
