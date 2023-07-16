@@ -119,7 +119,7 @@ const getInfoProduct = () => {
     //valid link hinh anh
     isValid &= Validation.kiemTraChuoi(product.img, 1, undefined, '#invalidImg', '#invalidImg', 'Nhập link hình ảnh');
 
-    console.log('img',Validation.kiemTraChuoi(product.img, 1, undefined, '#invalidImg', '#invalidImg', 'Nhập link hình ảnh'));
+    console.log('img', Validation.kiemTraChuoi(product.img, 1, undefined, '#invalidImg', '#invalidImg', 'Nhập link hình ảnh'));
 
     //vaild gia san pham
     isValid &=
@@ -249,25 +249,6 @@ $('#btnEdit').onclick = () => {
     }
 }
 
-//tìm theo loại sản phẩm
-$('#typePhone').onchange = (value) => {
-    let typeValue = $('#typePhone').value;
-
-    const promise = axios({
-        url: `${DOMAIN}/?type=${typeValue}`,
-        method: 'GET',
-    })
-
-    promise
-        .then((result) => {
-            console.log(result.data);
-            renderProduct(result.data)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-}
-
 //tim theo ten san pham
 $('#searchName').onchange = (value) => {
     let searchValue = $('#searchName').value;
@@ -289,34 +270,94 @@ $('#searchName').onchange = (value) => {
         })
 }
 
-$('#pricePhone').onchange = (value) => {
-    let priceValue = $('#pricePhone').value;
+//tìm theo loại sản phẩm
+//tim theo sort 
+$('#typePhone').onchange = (value) => {
+    let typeValue = $('#typePhone').value;
     let arrProduct = [];
-
-    console.log('pricePhone: ', priceValue);
-
-    const promise = axios({
-        url: DOMAIN,
-        method: 'GET',
-    })
-    promise
-        .then((result) => {
-            // console.log(result.data);
-            arrProduct = result.data;
-            // console.log(arrProduct);
-            if (priceValue == 'ab') {
-                arrProduct.sort((a, b) => (a.price > b.price) ? 1 : -1)
-                console.log("thấp đến cao: ", arrProduct)
-                renderProduct(arrProduct)
-            }
-            else if (priceValue == 'ba'){
-                arrProduct.sort((a, b) => (a.price < b.price) ? 1 : -1)
-                console.log("cao đến thấp: ", arrProduct)
-                renderProduct(arrProduct)
-            }
-
+    if (typeValue == 'iphone' || typeValue == 'samsung') {
+        const promise = axios({
+            url: `${DOMAIN}/?type=${typeValue}`,
+            method: 'GET',
         })
-        .catch((err) => {
-            console.log(err)
+        promise
+            .then((result) => {
+                console.log(result.data);
+                renderProduct(result.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    } else if (typeValue == 'ab' || typeValue == 'ba') {
+        const promise = axios({
+            url: DOMAIN,
+            method: 'GET',
         })
+        promise
+            .then((result) => {
+                arrProduct = result.data;
+                if (typeValue == 'ab') {
+                    arrProduct.sort((a, b) => (a.price > b.price) ? (a.price - b.price) :-1)
+                    console.log("thấp đến cao: ", arrProduct)
+                    renderProduct(arrProduct)
+                }
+                // else if(typeValue == 'ba'){
+                //     arrProduct.sort((a, b) => (a.price > b.price) ? (b.price - a.price) : -1)
+                //     console.log("cao đến thấp: ", arrProduct)
+                //     renderProduct(arrProduct)
+                // }
+
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }else{
+        const promise = axios({
+            url: DOMAIN,
+            method: 'GET',
+        })
+        promise
+            .then((result) => {
+                console.log(result.data);
+                renderProduct(result.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
 }
+
+
+
+// $('#pricePhone').onchange = (value) => {
+//     let priceValue = $('#pricePhone').value;
+//     let arrProduct = [];
+
+//     console.log('pricePhone: ', priceValue);
+
+//     const promise = axios({
+//         url: DOMAIN,
+//         method: 'GET',
+//     })
+//     promise
+//         .then((result) => {
+//             // console.log(result.data);
+//             arrProduct = result.data;
+//             // console.log(arrProduct);
+//             if (priceValue == 'ab') {
+//                 arrProduct.sort((a, b) => (a.price > b.price) ? 1 : -1)
+//                 console.log("thấp đến cao: ", arrProduct)
+//                 renderProduct(arrProduct)
+//             }
+//             else if (priceValue == 'ba') {
+//                 arrProduct.sort((a, b) => (a.price < b.price) ? 1 : -1)
+//                 console.log("cao đến thấp: ", arrProduct)
+//                 renderProduct(arrProduct)
+//             }
+
+//         })
+//         .catch((err) => {
+//             console.log(err)
+//         })
+// }
