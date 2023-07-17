@@ -301,11 +301,11 @@ $('#typePhone').onchange = (value) => {
                     console.log("thấp đến cao: ", arrProduct)
                     renderProduct(arrProduct)
                 }
-                // else if(typeValue == 'ba'){
-                //     arrProduct.sort((a, b) => (a.price > b.price) ? (b.price - a.price) : -1)
-                //     console.log("cao đến thấp: ", arrProduct)
-                //     renderProduct(arrProduct)
-                // }
+                else if(typeValue == 'ba'){
+                    arrProduct.sort((a, b) => b.price - a.price)
+                    console.log("cao đến thấp: ", arrProduct)
+                    renderProduct(arrProduct)
+                }
 
             })
             .catch((err) => {

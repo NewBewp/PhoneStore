@@ -124,7 +124,7 @@ b {
 }
 
 aside {
-  height: 100vh;
+  height: 94%;
 }
 @media screen and (max-width: 768px) {
   aside {
