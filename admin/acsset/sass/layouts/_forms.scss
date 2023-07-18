@@ -1,0 +1,123 @@
+//forms input product
+
+.inputProduct {
+    margin-top: 2rem;
+
+    form {
+        background: $white;
+        width:100wh;
+        border-radius: $card-border-radius;
+        padding: $card-padding;
+
+        @include tablet{
+            
+        }
+
+        .button-product {
+            margin-top: 2rem;
+            left: 0;
+
+            .btn-add-product {
+
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: .6rem;
+                border-radius: $border-radius-1;
+                padding: $card-padding;
+                background: transparent;
+                border: 2px dashed $primary;
+                color: $primary;
+                align-items: center;
+                justify-content: center;
+                transition: all .3s ease;
+
+
+                h3 {
+                    font-weight: 700;
+                }
+
+                &:hover {
+                    background-color: $primary;
+                    color: $white;
+                }
+            }
+
+            .btn-edit-product {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: .6rem;
+                border-radius: $border-radius-1;
+                padding: $card-padding;
+                background: transparent;
+                border: 2px dashed $primary;
+                color: $primary;
+                align-items: center;
+                justify-content: center;
+                transition: all .3s ease;
+                display: none;
+
+                h3 {
+                    font-weight: 700;
+                }
+
+                &:hover {
+                    background-color: $primary;
+                    color: $white;
+                }
+            }
+        }
+
+        .itemForm {
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+
+
+
+            label {
+                margin-bottom: 1rem;
+            }
+
+            span{
+                color: red;
+            }
+
+            input {
+                border: 1px solid $color-light;
+                border-radius: $border-radius-1;
+                padding: $card-padding;
+                box-shadow: none;
+                transition: all .3s ease;
+
+                &:hover {
+
+                    box-shadow: $box-shadow;
+                }
+
+                &:focus {
+                    border: 1px solid $black;
+                }
+            }
+
+            select {
+                border: 1px solid $color-light;
+                border-radius: $border-radius-1;
+                padding: $card-padding;
+                box-shadow: none;
+                transition: all .3s ease;
+
+                &:hover {
+
+                    box-shadow: $box-shadow;
+                }
+
+                &:focus {
+                    border: 1px solid $black;
+                }
+            }
+
+        }
+    }
+}
