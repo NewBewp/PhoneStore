@@ -129,7 +129,7 @@ const getInfoProduct = () => {
     //valid loai san pham
     isValid &= Validation.kiemTraChuoi(product.type, 1, undefined, '#invalidType', '#invalidType', 'Chọn loại sản phẩm');
 
-    console.log(isValid);
+    // console.log(isValid);
     // const { id, name, img, price, descr, type } = product;
 
     if (isValid) {
@@ -297,11 +297,11 @@ $('#typePhone').onchange = (value) => {
             .then((result) => {
                 arrProduct = result.data;
                 if (typeValue == 'ab') {
-                    arrProduct.sort((a, b) => (a.price > b.price) ? (a.price - b.price) :-1)
+                    arrProduct.sort((a, b) => a.price - b.price)                    
                     console.log("thấp đến cao: ", arrProduct)
                     renderProduct(arrProduct)
                 }
-                else if(typeValue == 'ba'){
+                else if (typeValue == 'ba') {
                     arrProduct.sort((a, b) => b.price - a.price)
                     console.log("cao đến thấp: ", arrProduct)
                     renderProduct(arrProduct)
@@ -311,7 +311,7 @@ $('#typePhone').onchange = (value) => {
             .catch((err) => {
                 console.log(err)
             })
-    }else{
+    } else {
         const promise = axios({
             url: DOMAIN,
             method: 'GET',
@@ -325,7 +325,6 @@ $('#typePhone').onchange = (value) => {
                 console.log(err)
             })
     }
-
 }
 
 

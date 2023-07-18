@@ -556,7 +556,6 @@ main .recent-orders table tbody td .edit:hover {
 }
 .right .recent-updates {
   margin-top: 1rem;
-  display: none;
 }
 .right .recent-updates .updates {
   background: #fff;
