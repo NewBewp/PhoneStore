@@ -1,0 +1,45 @@
+// google font
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,700'); 
+
+// Custom Color
+$primary:                   #7380ec;
+$danger:                    #ff7782;
+$success:                   #00c9a7;
+$warning:                   #ffc107;
+$black:                     #000   ;
+$white:                     #fff   ;
+$color-info-dark:           #7d8da1;
+$color-info-light:          #dce1eb;
+$color-dark:                #363949;
+$background:                #f6f6f9;
+$color-light: rgba(132, 139, 200, 0.18); 
+
+
+$card-border-radius: 2rem;
+$border-radius-1: 0.4rem;
+$border-radius-2: 0.8rem;
+$border-radius-3: 1.2rem;
+
+$card-padding: 1rem 1.8rem;
+$padding-1: 1.2rem;
+$box-shadow: 0 2rem 3rem $color-light;
+
+
+// Font 
+// 
+// font-weight, font-size
+
+$font-family: 'Poppins', sans-serif;
+// $font-family-base: $font-family !default;
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-semibold: 500;
+
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
